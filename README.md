@@ -4,12 +4,11 @@ Personal portfolio site for Lindsay Brielle Strouse. Plain HTML, CSS and JS, hos
 
 ## The page
 
-One scrolling page, `index.html`: an opening with heading, short bio and portrait, then "Trusted by" logos, key numbers, services, selected work, bio, speaking and writing, and contact. Styles live in `styles.css`; menu, filters, "Read more", the moving speaking tiles, the London clock and the two easter eggs live in `script.js`.
+One scrolling page, `index.html`: an opening with heading, short bio and portrait, then "Trusted by" logos, key numbers, services, selected work, bio, speaking and writing, and contact. Styles live in `styles.css`; menu, filters, "Read more", the moving speaking tiles, and the hidden breathing pause live in `script.js`.
 
-## Easter eggs
+## Hidden surprise
 
-1. Click the logo in the header five times.
-2. Type "hey google" anywhere on a page.
+Click the logo five times, or type "breathe" anywhere, for a short guided breathing pause: a soft flower opens and closes with three slow breaths (4 seconds in, 6 out), then fades away. Escape or the close button ends it early.
 
 ## Before launch
 

@@ -58,7 +58,6 @@ h3 { font-family: var(--sans); font-weight: 700; font-size: 19px; line-height: 1
 .mark svg { width: 100%; height: 100%; display: block; }
 .mark .cell { fill: var(--bg); stroke: var(--ink); stroke-width: 1.4; transition: fill .4s; }
 .mark .accent { fill: var(--red); }
-.lights-on .mark .cell:not(.accent) { fill: var(--gold); }
 .nav { display: flex; align-items: center; gap: 24px; }
 .nav a { font-size: 13.5px; font-weight: 600; color: var(--muted); text-decoration: none; white-space: nowrap; padding: 6px 0; border-bottom: 1.5px solid transparent; }
 .nav a:hover { color: var(--ink); }
@@ -183,9 +182,32 @@ h3 { font-family: var(--sans); font-weight: 700; font-size: 19px; line-height: 1
 .site-footer { margin-top: clamp(56px, 7vw, 96px); padding-block: 22px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--rule); }
 .site-footer .wrap { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 
-.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 70; transform: translate(-50%, 12px); opacity: 0; pointer-events: none; max-width: min(420px, calc(100vw - 32px)); background: var(--ink); color: #fff; font-size: 14px; padding: 12px 16px; border-radius: 12px; transition: opacity .3s, transform .3s; }
-.toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
-.toast a { color: var(--gold); }
+/* ---------- The breathing pause ---------- */
+
+.breath {
+  position: fixed; inset: 0; z-index: 90;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px));
+  background: rgba(247, 245, 241, 0.94);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  opacity: 0; visibility: hidden; transition: opacity 1.2s ease, visibility 0s linear 1.2s;
+}
+.breath.show { opacity: 1; visibility: visible; transition: opacity 1.2s ease; }
+.bloom { width: min(62vmin, 340px); height: auto; overflow: visible; }
+.petals { transform: scale(0.42) rotate(0deg); transform-origin: 0 0; transform-box: view-box; transition: transform 6s cubic-bezier(.45, 0, .3, 1); }
+.petal { mix-blend-mode: multiply; opacity: 0.55; }
+.petal.p0 { fill: #9cb59a; }
+.petal.p1 { fill: #e9b949; }
+.petal.p2 { fill: #e3a99c; }
+.core { fill: var(--green); opacity: .7; transition: opacity 4s ease; }
+.breath.inhale .petals { transform: scale(1) rotate(60deg); transition-duration: 4s; }
+.breath.exhale .petals { transform: scale(0.42) rotate(0deg); transition-duration: 6s; }
+.breath.inhale .core { opacity: 0; }
+.breath.still .petals { transform: scale(0.85); transition: none; }
+.cue { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 30px); font-weight: 300; color: var(--ink); min-height: 1.4em; text-align: center; letter-spacing: -0.01em; }
+.breath-close { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--rule); background: var(--card); color: var(--muted); font-size: 22px; line-height: 1; cursor: pointer; }
+.breath-close:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .breath, .breath.show, .petals, .core { transition: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   .track { animation: none; flex-wrap: wrap; width: auto; padding-inline: var(--gutter); }
