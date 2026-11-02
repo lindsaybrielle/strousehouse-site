@@ -1,45 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wrong door | Strouse House</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Strouse House is a strategy studio run by Lindsay Brielle Strouse. Research, programs and stories that help leaders bring new technology and ideas to the people they're for.">
+<meta property="og:title" content="Strouse House">
+<meta property="og:description" content="Research, programs and stories that help leaders bring new technology and ideas to the people they're for.">
+<meta property="og:image" content="https://strousehouse.co/assets/img/brielle-hero.jpg">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Manrope:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 <header class="site-header">
   <div class="wrap">
     <div class="brand">
-      <svg class="house-mark" viewBox="0 0 34 34" aria-hidden="true">
-        <path class="roof" d="M4 16 L17 4.5 L30 16 Z"/>
-        <path class="ln" d="M7 15 V30 H27 V15"/>
-        <rect class="win" x="10" y="18" width="5" height="5"/>
-        <rect class="win" x="19" y="18" width="5" height="5"/>
-        <rect class="door" x="15" y="24" width="4" height="6"/>
-      </svg>
-      <a class="brand-word" href="/#home">strouse house</a>
+      <button class="house-mark" type="button" aria-label="Strouse House">
+        <svg viewBox="0 0 26 26" aria-hidden="true">
+          <path class="ln" d="M3 12 L13 3.5 L23 12 M5.5 10.5 V23 H20.5 V10.5"/>
+          <rect class="win" x="8" y="13" width="3.6" height="3.6"/>
+          <rect class="win" x="14.4" y="13" width="3.6" height="3.6"/>
+          <rect class="door" x="11.4" y="18.5" width="3.2" height="4.5"/>
+        </svg>
+      </button>
+      <a class="brand-word" href="/#top">Strouse House</a>
     </div>
-    <nav class="nav" aria-label="Rooms">
+    <nav class="nav" aria-label="Sections">
       <a href="/#what-we-do">What we do</a>
       <a href="/#work">Work</a>
-      <a href="/#speaking">Speaking<span class="long"> &amp; Writing</span></a>
+      <a href="/#speaking"><span class="long">Speaking &amp; Writing</span><span class="short">Speaking</span></a>
       <a href="/#about">About</a>
-      <a href="/#contact" class="contact-link">Contact</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
 <main id="main">
-  <section class="room tint-sky" style="min-height:70vh">
+  <section class="hall" style="min-height:60vh">
     <div class="wrap">
-      <p class="room-label">hmm, wrong door</p>
-      <h1>This room is still in the <em>research phase.</em></h1>
-      <p class="lede">Nothing lives here yet. The rest of the house is open, though.</p>
+      <p class="label">404 · Wrong door</p>
+      <h1 style="max-width:14em">This room is still in the <em>research phase.</em></h1>
+      <p class="note" style="margin-bottom:24px">nothing lives here yet</p>
       <div class="btn-row">
-        <a class="btn red" href="/">Back to the front door</a>
+        <a class="btn" href="/">Back to the hall</a>
         <a class="btn ghost" href="/#work">See the work</a>
       </div>
     </div>
