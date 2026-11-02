@@ -2,16 +2,18 @@
 
 Personal portfolio site for Lindsay Brielle Strouse. Plain HTML, CSS and JS, hosted on GitHub Pages (same setup as workwell-site). No build step.
 
-## Pages
+## The house
 
-- `index.html` – home: positioning, the thread through the work, three ways I help, selected work, ways to work together
-- `work.html` – selected work grouped by Insight, Programs and Stories, plus ventures
-- `writing-speaking.html` – essays, talks and teaching
-- `about.html` – bio and short work history
-- `contact.html` – email, Calendly, LinkedIn
-- `404.html` – page not found
+One scrolling page, `index.html`, where each section is a room with its own hand-drawn illustration (inline SVG, roughened by the `#rough` filter):
 
-Shared styles live in `styles.css`; menu, filters and the two easter eggs live in `script.js`. The header and footer are repeated in each page, so change them everywhere if you edit one.
+- Outside, the front door (`#home`): what Strouse House does
+- Room 01, the living room (`#what-we-do`): three services as the reading lamp, the kitchen table and the mantelpiece
+- Room 02, the studio (`#work`): selected work with filters, plus "out in the shed" ventures
+- Room 03, the library (`#speaking`): writing, talks and teaching
+- Room 04, who lives here (`#about`): bio, work history, guestbook
+- Outside, the porch (`#contact`): email, Calendly, LinkedIn
+
+The menu stays pinned at the top and highlights the room you're in. `404.html` is the "wrong door" page. Styles live in `styles.css`; menu, drawing animations, filters and the two easter eggs live in `script.js`.
 
 ## Easter eggs
 
@@ -21,7 +23,6 @@ Shared styles live in `styles.css`; menu, filters and the two easter eggs live i
 ## Before launch
 
 - Replace the yellow `todo` placeholders on the Writing & Speaking page with real titles, links and summaries.
-- Swap in a professional headshot (`assets/img/`) when you have one.
 
 ## Connecting strousehouse.co
 
