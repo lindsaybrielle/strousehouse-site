@@ -228,6 +228,13 @@ h1 em, h2 em { font-style: italic; color: var(--red); }
 .project[hidden] { display: none; }
 .project .figure { font-family: var(--display); font-weight: 300; font-size: clamp(34px, 3.4vw, 46px); line-height: 1; letter-spacing: -0.025em; color: var(--red); }
 .project .figure small { display: block; font-family: var(--ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 10px; line-height: 1.4; }
+.project .media { margin: 0 0 16px; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; background: var(--paper-2); position: relative; }
+.project figure.media { aspect-ratio: auto; overflow: visible; background: none; }
+.project figure.media img { aspect-ratio: 16 / 9; }
+.project .media img, .project .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project .media.contain img, .project .media.contain video { object-fit: contain; background: var(--paper-2); }
+.project figure.media.contain img { border: 1px solid var(--rule); }
+.project .media figcaption { font-family: var(--ui); font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
 .project .meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-bottom: 6px; }
 .project .client { font-family: var(--ui); font-size: 12px; font-weight: 600; color: var(--muted); }
 .project h3 { margin-bottom: 10px; }
