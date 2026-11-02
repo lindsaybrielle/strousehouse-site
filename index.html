@@ -13,7 +13,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Manrope:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Manrope:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,8 +21,8 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.7" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
 </svg>
 
@@ -49,393 +49,533 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="wrap page">
+  <div class="story">
 
-  <!-- ===== Hall ===== -->
-  <section class="hall" id="top">
-    <div class="wrap hall-grid">
-      <div>
-        <p class="label">Strouse House · Strategy studio · London</p>
-        <h1>Strouse House helps leaders bring new technology and ideas to <em>the people they're for.</em></h1>
-        <p class="note">What would people feel if they walked into yours?</p>
-        <p class="lede">You can tell a good house the moment you walk in. Every detail belongs to the people who live there.</p>
-        <p class="lede">New products, programs and ideas earn that feeling when someone has done the work of understanding who's coming in. Strouse House does that work through research, programs and stories, for startups and large organizations.</p>
-        <div class="btn-row">
-          <a class="btn" href="https://calendly.com/strouse" target="_blank" rel="noopener">Book a call</a>
-          <a class="btn ghost" href="#work">See the work</a>
-        </div>
-        <div class="byline">
-          <img src="assets/img/brielle-window.jpg" alt="Lindsay Brielle Strouse">
-          <p><strong>Founded by Lindsay Brielle Strouse.</strong> Previously Google and the Tony Blair Institute.</p>
-        </div>
+    <!-- ===== Attic: opening ===== -->
+    <section class="opening" id="top" data-floor="attic">
+      <svg class="floor-crop art" viewBox="0 0 440 262" aria-hidden="true"></svg>
+      <p class="label">Strouse House · Strategy studio · London</p>
+      <h1>Strouse House helps leaders bring new technology and ideas to <em>the people they're for.</em></h1>
+      <p class="note">What would people feel if they walked into yours?</p>
+      <p class="lede">You can tell a good house the moment you walk in. Every detail belongs to the people who live there.</p>
+      <p class="lede">New products, programs and ideas earn that feeling when someone has done the work of understanding who's coming in. Strouse House does that work through research, programs and stories, for startups and large organizations.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://calendly.com/strouse" target="_blank" rel="noopener">Book a call</a>
+        <a class="btn ghost" href="#work">See the work</a>
       </div>
-
-      <div class="plan-wrap">
-        <svg class="plan" viewBox="0 0 540 400" role="group" aria-label="Floor plan of Strouse House. Each room links to a section of the site.">
-          <!-- clickable rooms -->
-          <a href="#what-we-do" aria-label="Living room: what we do"><rect class="hit" x="30" y="40" width="210" height="160"/></a>
-          <a href="#work" aria-label="Study: work"><rect class="hit" x="240" y="40" width="270" height="160"/></a>
-          <a href="#about" aria-label="Kitchen: about"><rect class="hit" x="30" y="200" width="170" height="140"/></a>
-          <a href="#top" aria-label="Hall: you are here"><rect class="hit" x="200" y="200" width="140" height="140"/></a>
-          <a href="#speaking" aria-label="Library: speaking and writing"><rect class="hit" x="340" y="200" width="170" height="140"/></a>
-
-          <g class="pencil" pointer-events="none">
-            <!-- furniture -->
-            <rect class="furn" x="52" y="146" width="112" height="34" rx="4"/>
-            <path class="furn" d="M52 156 H164 M89 156 V180 M127 156 V180"/>
-            <rect class="furn" x="64" y="96" width="120" height="40" stroke-dasharray="3 3"/>
-            <rect class="furn" x="190" y="92" width="34" height="34" rx="4"/>
-            <rect class="furn" x="36" y="84" width="10" height="48"/>
-            <rect class="furn" x="300" y="64" width="128" height="40"/>
-            <circle class="furn" cx="364" cy="124" r="13"/>
-            <path class="furn red" d="M500 64 V176"/>
-            <circle class="furn red" cx="500" cy="80" r="2.5"/><circle class="furn red" cx="500" cy="124" r="2.5"/><circle class="furn red" cx="500" cy="160" r="2.5"/>
-            <path class="furn" d="M36 206 H192 V228 H58 V334 H36 Z"/>
-            <circle class="furn" cx="150" cy="295" r="22"/>
-            <rect class="furn" x="142" y="262" width="16" height="9"/><rect class="furn" x="142" y="320" width="16" height="9"/>
-            <rect class="furn" x="116" y="287" width="9" height="16"/><rect class="furn" x="176" y="287" width="9" height="16"/>
-            <rect class="furn" x="208" y="240" width="40" height="46"/>
-            <path class="furn" d="M208 246 H248 M208 252 H248 M208 258 H248 M208 264 H248 M208 270 H248 M208 276 H248 M208 282 H248"/>
-            <path class="furn" d="M228 280 V246 M223 252 L228 246 L233 252"/>
-            <rect class="furn" x="490" y="206" width="14" height="128"/>
-            <path class="furn" d="M490 222 H504 M490 238 H504 M490 254 H504 M490 270 H504 M490 286 H504 M490 302 H504 M490 318 H504"/>
-            <rect class="furn" x="346" y="320" width="140" height="14"/>
-            <path class="furn" d="M366 320 V334 M386 320 V334 M406 320 V334 M426 320 V334 M446 320 V334 M466 320 V334"/>
-            <rect class="furn" x="378" y="236" width="36" height="36" rx="4"/>
-            <circle class="furn" cx="436" cy="246" r="6"/>
-
-            <!-- walls -->
-            <rect class="wall" x="30" y="40" width="480" height="300"/>
-            <path class="wall in" d="M240 40 V200 M30 200 H510 M200 200 V340 M340 200 V340"/>
-
-            <!-- door openings -->
-            <rect class="gap" x="204" y="196" width="34" height="8"/>
-            <rect class="gap" x="300" y="196" width="36" height="8"/>
-            <rect class="gap" x="196" y="290" width="8" height="36"/>
-            <rect class="gap" x="336" y="290" width="8" height="36"/>
-            <rect class="gap" x="252" y="335" width="40" height="10"/>
-            <path class="leaf" d="M204 200 V234 M336 200 V234 M200 326 H234 M340 326 H306 M252 340 V300"/>
-            <path class="swing" d="M238 200 A34 34 0 0 1 204 234 M300 200 A36 36 0 0 0 336 236 M200 290 A36 36 0 0 1 236 326 M340 290 A36 36 0 0 0 304 326 M292 340 A40 40 0 0 0 252 300"/>
-
-            <!-- windows -->
-            <rect class="win" x="80" y="36" width="90" height="8"/>
-            <rect class="win" x="320" y="36" width="130" height="8"/>
-            <rect class="win" x="26" y="240" width="8" height="60"/>
-            <path class="swing" d="M80 40 H170 M320 40 H450 M30 240 V300"/>
-
-            <!-- dimensions -->
-            <path class="dim" d="M30 18 H510 M30 12 V24 M510 12 V24 M10 40 V340 M4 40 H16 M4 340 H16"/>
-          </g>
-
-          <text class="tiny" x="270" y="13" text-anchor="middle">12.40 m</text>
-          <text class="tiny" x="0" y="0" text-anchor="middle" transform="translate(-2 190) rotate(-90)">7.80 m</text>
-
-          <text class="rm" x="114" y="70" text-anchor="middle">LIVING ROOM</text>
-          <text class="sub" x="114" y="85" text-anchor="middle">what we do</text>
-          <text class="rm" x="452" y="150" text-anchor="middle">STUDY</text>
-          <text class="sub" x="452" y="166" text-anchor="middle">the work</text>
-          <text class="rm" x="96" y="250" text-anchor="middle">KITCHEN</text>
-          <text class="sub" x="96" y="265" text-anchor="middle">about</text>
-          <text class="rm" x="294" y="230" text-anchor="middle">HALL</text>
-          <text class="rm" x="430" y="296" text-anchor="middle">LIBRARY</text>
-          <text class="sub" x="430" y="312" text-anchor="middle">speaking &amp; writing</text>
-
-          <a href="#contact" aria-label="Front door: contact">
-            <rect class="hit" x="222" y="344" width="100" height="40"/>
-            <text class="rm" x="272" y="368" text-anchor="middle">FRONT DOOR</text>
-            <text class="sub" x="272" y="383" text-anchor="middle">come in</text>
-          </a>
-          <text class="hand" x="346" y="368">you are in the hall</text>
-          <text class="tiny" x="510" y="396" text-anchor="end">GROUND FLOOR · 1:50</text>
-        </svg>
+      <div class="byline">
+        <img src="assets/img/brielle-window.jpg" alt="Lindsay Brielle Strouse">
+        <p><strong>Founded by Lindsay Brielle Strouse.</strong> Previously Google and the Tony Blair Institute.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Living room: what we do ===== -->
-  <section class="room" id="what-we-do">
-    <div class="wrap room-grid">
-      <aside class="margin">
-        <p class="room-name">Living room<span>what we do</span></p>
-        <svg class="mini-plan" data-room="living" viewBox="26 36 488 308" aria-hidden="true"></svg>
-        <p class="note">Who's already hacking together a workaround for what you're building?</p>
-      </aside>
-      <div class="main">
-        <h2>Three ways in.</h2>
-        <p class="lede">Each one works on its own, and they build on each other. Together they take a new idea from a hunch to a habit.</p>
-        <div class="services">
-          <article class="service">
-            <p class="label red">Insight</p>
+    <!-- ===== Living room: what we do ===== -->
+    <section id="what-we-do" data-floor="living">
+      <svg class="floor-crop art" viewBox="0 258 440 290" aria-hidden="true"></svg>
+      <p class="label red">Living room · What we do</p>
+      <h2>Three ways in.</h2>
+      <p class="note">Who's already hacking together a workaround for what you're building?</p>
+      <p class="lede">Each one works on its own, and they build on each other. Together they take a new idea from a hunch to a habit.</p>
+      <div class="services">
+        <article class="service">
+          <p class="label red">Insight</p>
+          <div>
             <h3>Research and strategy</h3>
             <p>Finding out who's coming in: what people need, what they already do and where something new fits into their day. Then turning that into positioning, priorities and a plan.</p>
-            <p class="proof">Shaped Google Assistant launches across <span class="underlined">7+ countries</span> in Asia Pacific and India.</p>
-          </article>
-          <article class="service">
-            <p class="label red">Programs</p>
+            <p class="proof">Shaped Google Assistant launches across 7+ countries in Asia Pacific and India.</p>
+          </div>
+        </article>
+        <article class="service">
+          <p class="label red">Programs</p>
+          <div>
             <h3>Programs and partnerships</h3>
             <p>Designing and running the programs, partnerships and workshops that bring people through the door and keep them coming back, with measurement built in from the start.</p>
-            <p class="proof">AI and digital skills programs across <span class="underlined">10+ countries</span> with the Tony Blair Institute.</p>
-          </article>
-          <article class="service">
-            <p class="label red">Stories</p>
+            <p class="proof">AI and digital skills programs across 10+ countries with the Tony Blair Institute.</p>
+          </div>
+        </article>
+        <article class="service">
+          <p class="label red">Stories</p>
+          <div>
             <h3>Marketing and storytelling</h3>
             <p>Campaigns, case studies and narratives that make something new feel like it was always theirs, and give people a reason to pass it on.</p>
-            <p class="proof"><span class="underlined">5M views</span> for Google Maps' Street View trek through the Khumbu Valley.</p>
-          </article>
-        </div>
+            <p class="proof">5M views for Google Maps' Street View trek through the Khumbu Valley.</p>
+          </div>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Study: work ===== -->
-  <section class="room alt" id="work">
-    <div class="wrap room-grid">
-      <aside class="margin">
-        <p class="room-name">Study<span>the work</span></p>
-        <svg class="mini-plan" data-room="study" viewBox="26 36 488 308" aria-hidden="true"></svg>
-        <p class="note">Which of these looks most like your problem?</p>
-      </aside>
-      <div class="main">
-        <h2>Selected work.</h2>
-        <p class="lede">Nine projects across research, programs and stories. Each one shows the problem, what I did and what changed.</p>
-        <div class="filters" role="group" aria-label="Filter work">
-          <button type="button" data-filter="all" aria-pressed="true">Everything</button>
-          <button type="button" data-filter="insight" aria-pressed="false">Insight</button>
-          <button type="button" data-filter="programs" aria-pressed="false">Programs</button>
-          <button type="button" data-filter="stories" aria-pressed="false">Stories</button>
-        </div>
-
-        <div class="cards" id="work-cards">
-          <article class="card" data-cat="insight">
-            <div class="media"><img src="assets/img/work-suruh-google-aja.jpg" alt="Still from the Suruh Google aja campaign in Indonesia" loading="lazy"></div>
+    <!-- ===== Study: work ===== -->
+    <section id="work" data-floor="study">
+      <svg class="floor-crop art" viewBox="0 548 440 290" aria-hidden="true"></svg>
+      <p class="label red">Study · The work</p>
+      <h2>Selected work.</h2>
+      <p class="note">Which of these looks most like your problem?</p>
+      <p class="lede">Nine projects across research, programs and stories. Each one shows the problem, what I did and what changed.</p>
+      <div class="filters" role="group" aria-label="Filter work">
+        <button type="button" data-filter="all" aria-pressed="true">Everything</button>
+        <button type="button" data-filter="insight" aria-pressed="false">Insight</button>
+        <button type="button" data-filter="programs" aria-pressed="false">Programs</button>
+        <button type="button" data-filter="stories" aria-pressed="false">Stories</button>
+      </div>
+      <div class="projects" id="work-list">
+        <article class="project" data-cat="insight">
+          <div class="figure">$1<small>per monthly active user</small></div>
+          <div>
             <div class="meta"><span class="label red">Insight</span><span class="client">Google Assistant · Asia Pacific</span></div>
             <h3>Made Google Assistant's most efficient campaign in the world</h3>
             <p><b>The problem.</b> People didn't know when or why they'd use a voice assistant, and Google wasn't sure either.</p>
             <p><b>What I did.</b> Led research to map audiences and daily routines, and built a model that ranked local features by importance, satisfaction, current tech habits, openness to AI and how often people did the task.</p>
-            <p class="result"><b>What changed.</b> The insights shaped 5 campaigns and partnerships. Indonesia's <em>Suruh Google aja</em><span class="fnwrap"><button class="fn" type="button" aria-label="Translation">1</button><span class="fn-note" role="tooltip">Roughly, "just get Google to do it."</span></span> ran at <span class="circled">$1 per monthly active user</span>, the most efficient Assistant campaign globally.</p>
-          </article>
-          <article class="card" data-cat="programs">
-            <div class="media stat"><div class="big">5,000+</div><div class="small">Civil servants trained in digital and AI skills</div></div>
+            <p class="result"><b>What changed.</b> The insights shaped 5 campaigns and partnerships. Indonesia's <em>Suruh Google aja</em><span class="fnwrap"><button class="fn" type="button" aria-label="Translation">1</button><span class="fn-note" role="tooltip">Roughly, "just get Google to do it."</span></span> ran at $1 per monthly active user, the most efficient Assistant campaign globally.</p>
+          </div>
+        </article>
+        <article class="project" data-cat="programs">
+          <div class="figure">5,000+<small>civil servants trained</small></div>
+          <div>
             <div class="meta"><span class="label red">Programs</span><span class="client">Tony Blair Institute · 10+ countries</span></div>
             <h3>Built a $1.3M program to bring AI and digital skills to public servants</h3>
             <p><b>The problem.</b> Governments wanted to move fast on AI and digital services, and their teams needed skills that fit their real work.</p>
             <p><b>What I did.</b> As Head of Partnerships for Digital Inclusion, led a team designing, funding and delivering digital skills, AI education and connectivity programs, with partners including Khan Academy, Cambridge, DeepMind, Intel, Raspberry Pi Foundation and Apolitical.</p>
-            <p class="result"><b>What changed.</b> A $1.3M program reaching 5,000+ civil servants, plus political commitments to train <span class="circled">200,000 more</span>.</p>
-          </article>
-          <article class="card" data-cat="stories">
-            <div class="media"><img src="assets/img/work-khumbu.jpg" alt="Google Maps Street View page for the Khumbu, Nepal" loading="lazy"></div>
+            <p class="result"><b>What changed.</b> A $1.3M program reaching 5,000+ civil servants, plus political commitments to train 200,000 more.</p>
+          </div>
+        </article>
+        <article class="project" data-cat="stories">
+          <div class="figure">5M<small>video views</small></div>
+          <div>
             <div class="meta"><span class="label red">Stories</span><span class="client">Google Maps Street View</span></div>
             <h3>Took 5 million armchair travelers to the foot of Everest</h3>
             <p><b>The problem.</b> People used Google Maps every day but rarely thought of Street View as a way to explore.</p>
             <p><b>What I did.</b> Launched a website and film about the Sherpa community and culture of the Khumbu Valley, backed by PR, media spend and a donation to a local NGO.</p>
-            <p class="result"><b>What changed.</b> 5M video views, <span class="underlined">+43% ad recall</span> and +28% brand interest.</p>
+            <p class="result"><b>What changed.</b> 5M video views, +43% ad recall and +28% brand interest.</p>
             <a class="text-link" href="https://www.google.com/maps/about/behind-the-scenes/streetview/treks/khumbu/" target="_blank" rel="noopener">Visit the Khumbu</a>
-          </article>
-          <article class="card" data-cat="insight">
-            <div class="media"><img src="assets/img/work-hindi-campaign.jpg" alt="Three video stills from Google Assistant's Hindi campaign" loading="lazy"></div>
+          </div>
+        </article>
+        <article class="project" data-cat="insight">
+          <div class="figure">+15%<small>monthly active users</small></div>
+          <div>
             <div class="meta"><span class="label red">Insight</span><span class="client">Google Assistant · India</span></div>
-            <h3>Grew Google Assistant use among Hindi speakers by 15%</h3>
+            <h3>Grew Google Assistant use among Hindi speakers</h3>
             <p><b>The problem.</b> Smartphones weren't built for Hindi speakers, so millions of people were missing products that could help them.</p>
             <p><b>What I did.</b> Led the segmentation, positioning, use-case and messaging research behind Google's first Hindi-language Assistant campaign.</p>
-            <p class="result"><b>What changed.</b> +15% monthly active users and <span class="underlined">+23% 28-day retention</span> for the features we promoted.</p>
+            <p class="result"><b>What changed.</b> +15% monthly active users and +23% 28-day retention for the features we promoted.</p>
             <a class="text-link" href="https://www.youtube.com/watch?v=HP43UyDWD30" target="_blank" rel="noopener">Watch the campaign</a>
-          </article>
-          <article class="card" data-cat="programs">
-            <div class="media stat"><div class="big">$0 → $10M</div><div class="small">Yearly budget for customer events</div></div>
-            <div class="meta"><span class="label red">Programs</span><span class="client">Google Ads · SMB</span></div>
+          </div>
+        </article>
+        <article class="project" data-cat="programs">
+          <div class="figure">$10M<small>a year, from zero</small></div>
+          <div>
+            <div class="meta"><span class="label red">Programs</span><span class="client">Google Ads · Small and medium businesses</span></div>
             <h3>Grew a customer events program from nothing to $10M a year</h3>
             <p><b>The problem.</b> Google's small business marketing went almost entirely to finding new customers, while competitors fought for the ones it already had.</p>
             <p><b>What I did.</b> Launched a global events program that mixed executive relationship-building, practitioner training and hands-on setup, and built the creative, infrastructure and measurement behind it.</p>
-            <p class="result"><b>What changed.</b> The program touched <span class="underlined">$2B+ in annualized revenue</span>, and causal impact analysis showed it increased spend per client.</p>
-          </article>
-          <article class="card" data-cat="stories">
-            <div class="media"><img src="assets/img/work-smb-stories.jpg" alt="A SOLOSHOT customer case study for YouTube ads" loading="lazy"></div>
+            <p class="result"><b>What changed.</b> The program touched $2B+ in annualized revenue, and causal impact analysis showed it increased spend per client.</p>
+          </div>
+        </article>
+        <article class="project" data-cat="stories">
+          <div class="figure">88%<small>of SMB sales teams</small></div>
+          <div>
             <div class="meta"><span class="label red">Stories</span><span class="client">Google Ads · Mobile and YouTube</span></div>
-            <h3>Built the case study template 88% of Google's small business sales teams used</h3>
+            <h3>Built the case study template Google's small business sales teams used</h3>
             <p><b>The problem.</b> Small businesses wanted proof that new mobile and YouTube ads worked for businesses like theirs.</p>
             <p><b>What I did.</b> Built a style guide and template so teams could turn customer wins into case studies fast, trained them to keep a pipeline of stories, and wove the best into Google's wider narratives.</p>
             <p class="result"><b>What changed.</b> Became the official template on Google's global resource platform, used by 88% of SMB sales teams and featured at 90% of performance events.</p>
-          </article>
-          <article class="card" data-cat="insight">
-            <div class="media stat"><div class="big">3 days → 2 pilots</div><div class="small">From research sprint to partnerships</div></div>
+          </div>
+        </article>
+        <article class="project" data-cat="insight">
+          <div class="figure">2<small>partnership pilots in 3 days</small></div>
+          <div>
             <div class="meta"><span class="label red">Insight</span><span class="client">Google Next Billion Users</span></div>
             <h3>Found where AI could help smallholder farmers, and turned it into pilots</h3>
             <p><b>The problem.</b> Farming lifts incomes in the poorest communities, but smallholder farmers struggle with yields, information and access to capital.</p>
             <p><b>What I did.</b> Ran the market landscape, trends analysis and in-depth interviews behind Google's vision for AI and consumer tech in farming communities.</p>
             <p class="result"><b>What changed.</b> A 3-day sprint that set the direction and led to 2 new partnership pilots.</p>
-          </article>
-          <article class="card" data-cat="programs">
-            <div class="media stat"><div class="big">1,000+</div><div class="small">Ukrainian refugees housed within weeks</div></div>
-            <div class="meta"><span class="label red">Programs</span><span class="client">Find-A-Host · 2022</span></div>
-            <h3>Helped house 1,000+ Ukrainian refugees within weeks</h3>
+          </div>
+        </article>
+        <article class="project" data-cat="programs">
+          <div class="figure">1,000+<small>refugees housed in weeks</small></div>
+          <div>
+            <div class="meta"><span class="label red">Programs</span><span class="client">Find-A-Host · Co-founder · 2022</span></div>
+            <h3>Helped house Ukrainian refugees within weeks of the invasion</h3>
             <p><b>The problem.</b> People fleeing Ukraine needed safe homes faster than official systems could find them.</p>
             <p><b>What I did.</b> Co-founded Find-A-Host, built a 30+ person volunteer team and a community model that could scale, and launched partnerships including Airbnb.org.</p>
             <p class="result"><b>What changed.</b> 1,000+ refugees housed within weeks, and national media coverage.</p>
-          </article>
-          <article class="card" data-cat="stories">
-            <div class="media contain"><img src="assets/img/work-doodle.jpg" alt="Google Doodle celebrating aviator Amy Johnson" loading="lazy"></div>
+          </div>
+        </article>
+        <article class="project" data-cat="stories">
+          <div class="figure">50<small>press mentions per story</small></div>
+          <div>
             <div class="meta"><span class="label red">Stories</span><span class="client">Google Doodles</span></div>
             <h3>Ghostwrote the stories behind dozens of Google Doodles</h3>
             <p><b>The problem.</b> Spark curiosity about people, places and moments most people would never think to search for.</p>
             <p><b>What I did.</b> Wrote the stories that ran alongside dozens of Doodles, from aviator Amy Johnson<span class="fnwrap"><button class="fn" type="button" aria-label="About this Doodle">2</button><span class="fn-note" role="tooltip">Her Doodle marked what would have been her 114th birthday.</span></span> to Bastille Day.</p>
-            <p class="result"><b>What changed.</b> An average of <span class="underlined">50 press mentions</span> per story, including The Telegraph, The Independent and Time.</p>
+            <p class="result"><b>What changed.</b> An average of 50 press mentions per story, including The Telegraph, The Independent and Time.</p>
             <a class="text-link" href="https://www.google.com/doodles/amy-johnsons-114th-birthday" target="_blank" rel="noopener">See the Amy Johnson Doodle</a>
-          </article>
-        </div>
+          </div>
+        </article>
+      </div>
 
-        <div class="also">
-          <p class="label green">Also built</p>
-          <h3>Ventures started along the way</h3>
+      <div class="also">
+        <p class="label green">Also built</p>
+        <h3>Ventures started along the way</h3>
+        <ul class="list">
+          <li><a class="what" href="https://www.workwellcards.com/" target="_blank" rel="noopener">Workwell<small>Card decks, a discovery quiz and workshops that build energy, connection and resilience into the workday. 85% satisfaction across public and private sector teams.</small></a><span class="role">Founder</span></li>
+          <li><a class="what" href="https://www.youtube.com/solvehappiness" target="_blank" rel="noopener">The Happiness Festival<small>A free 3-day virtual festival with 50 scientists and thinkers, including Misty Copeland, Laurie Santos and Maya Shankar. 60,000+ views.</small></a><span class="role">Marketing &amp; production</span></li>
+          <li><a class="what" href="https://anchor.fm/figuringitoutpodcast" target="_blank" rel="noopener">Figuring It Out<small>A limited-run podcast on the science and stories behind life's biggest decisions.</small></a><span class="role">Producer &amp; host</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Library: speaking and writing ===== -->
+    <section id="speaking" data-floor="library">
+      <svg class="floor-crop art" viewBox="0 840 440 290" aria-hidden="true"></svg>
+      <p class="label red">Library · Speaking &amp; writing</p>
+      <h2>Speaking and writing.</h2>
+      <p class="note">What should your team still be debating on the way home?</p>
+      <p class="lede">Talks, classrooms and essays on AI adoption, the future of work and what makes people take to something new.</p>
+      <ul class="topics" aria-label="Topics">
+        <li>AI adoption and skills</li><li>The future of work and learning</li><li>Data-driven insight</li><li>Inclusive marketing</li><li>Partnerships for impact</li>
+      </ul>
+      <div class="stack">
+        <div>
+          <h3>On stage</h3>
           <ul class="list">
-            <li><a class="what" href="https://www.workwellcards.com/" target="_blank" rel="noopener">Workwell<small>Card decks, a discovery quiz and workshops that build energy, connection and resilience into the workday. 85% satisfaction across public and private sector teams.</small></a><span class="role">Founder</span></li>
-            <li><a class="what" href="https://www.youtube.com/solvehappiness" target="_blank" rel="noopener">The Happiness Festival<small>A free 3-day virtual festival with 50 scientists and thinkers, including Misty Copeland, Laurie Santos and Maya Shankar. 60,000+ views.</small></a><span class="role">Marketing &amp; production</span></li>
-            <li><a class="what" href="https://anchor.fm/figuringitoutpodcast" target="_blank" rel="noopener">Figuring It Out<small>A limited-run podcast on the science and stories behind life's biggest decisions.</small></a><span class="role">Producer &amp; host</span></li>
+            <li><span class="what">CogX 2025<small>Skills for the Future</small></span><span class="role">Moderator</span></li>
+            <li><span class="what">ITU AI Skills Coalition</span><span class="role">Steering committee · Panelist</span></li>
+            <li><span class="what">Economics of Mutuality</span><span class="role">Keynote</span></li>
+            <li><span class="what">Product Marketing World Summit</span><span class="role">Moderator</span></li>
+            <li><span class="what">New Internet Users Expo</span><span class="role">Keynote · Panelist</span></li>
+            <li><span class="what">Global Google Assistant Insights Summit</span><span class="role">Presenter</span></li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Library: speaking and writing ===== -->
-  <section class="room" id="speaking">
-    <div class="wrap room-grid">
-      <aside class="margin">
-        <p class="room-name">Library<span>speaking &amp; writing</span></p>
-        <svg class="mini-plan" data-room="library" viewBox="26 36 488 308" aria-hidden="true"></svg>
-        <p class="note">What should your team still be debating on the way home?</p>
-      </aside>
-      <div class="main">
-        <h2>Speaking and writing.</h2>
-        <p class="lede">Talks, classrooms and essays on AI adoption, the future of work and what makes people take to something new.</p>
-        <ul class="topics" aria-label="Topics">
-          <li>AI adoption and skills</li>
-          <li>The future of work and learning</li>
-          <li>Data-driven insight</li>
-          <li>Inclusive marketing</li>
-          <li>Partnerships for impact</li>
-        </ul>
-
-        <div class="two-col">
-          <div>
-            <h3>On stage</h3>
-            <ul class="list">
-              <li><span class="what">CogX 2025<small>Skills for the Future</small></span><span class="role">Moderator</span></li>
-              <li><span class="what">ITU AI Skills Coalition</span><span class="role">Steering committee · Panelist</span></li>
-              <li><span class="what">Economics of Mutuality</span><span class="role">Keynote</span></li>
-              <li><span class="what">Product Marketing World Summit</span><span class="role">Moderator</span></li>
-              <li><span class="what">New Internet Users Expo</span><span class="role">Keynote · Panelist</span></li>
-              <li><span class="what">Global Google Assistant Insights Summit</span><span class="role">Presenter</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3>In the classroom</h3>
-            <ul class="list">
-              <li><span class="what">Bayes Business School<small>Data-driven insights and purpose</small></span><span class="role">Guest lecturer</span></li>
-              <li><span class="what">Impact Hub<small>Partnerships, Together for Wellbeing Accelerator</small></span><span class="role">Facilitator · 2026</span></li>
-              <li><span class="what">IDEO<small>Build to Think AI hackathon series</small></span><span class="role">Mentor · 2026</span></li>
-              <li><span class="what">New York University</span><span class="role">Adjunct professor · fall 2027</span></li>
-            </ul>
-            <div class="photos">
-              <figure><img src="assets/img/speaking-google.jpg" alt="Brielle speaking at a podium at Google" loading="lazy"><figcaption>Presenting at Google</figcaption></figure>
-              <figure><img src="assets/img/speaking-new-internet-users.jpg" alt="Brielle presenting research on new internet users" loading="lazy"><figcaption>New internet users and the power of voice</figcaption></figure>
-            </div>
-          </div>
+        <div>
+          <h3>In the classroom</h3>
+          <ul class="list">
+            <li><span class="what">Bayes Business School<small>Data-driven insights and purpose</small></span><span class="role">Guest lecturer</span></li>
+            <li><span class="what">Impact Hub<small>Partnerships, Together for Wellbeing Accelerator</small></span><span class="role">Facilitator · 2026</span></li>
+            <li><span class="what">IDEO<small>Build to Think AI hackathon series</small></span><span class="role">Mentor · 2026</span></li>
+            <li><span class="what">New York University</span><span class="role">Adjunct professor · fall 2027</span></li>
+          </ul>
         </div>
-
-        <div class="two-col">
-          <div>
-            <h3>Writing</h3>
-            <ul class="list">
-              <li><a class="what" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">Good friction<small><span class="todo">Draft: exact title, link and one-line summary</span></small></a><span class="role"><span class="todo">Publication</span></span></li>
-              <li><a class="what" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">The missing middle<small><span class="todo">Draft: exact title, link and one-line summary</span></small></a><span class="role"><span class="todo">Publication</span></span></li>
-              <li><a class="what" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">Inclusive marketing<small><span class="todo">Draft: exact title, link and one-line summary</span></small></a><span class="role"><span class="todo">Publication</span></span></li>
-            </ul>
-            <div class="btn-row"><a class="text-link" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">All clippings</a></div>
-          </div>
+        <div>
+          <h3>Writing</h3>
+          <ul class="list">
+            <li><a class="what" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">Good friction<small><span class="todo">Draft: exact title, link and one-line summary</span></small></a><span class="role"><span class="todo">Publication</span></span></li>
+            <li><a class="what" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">The missing middle<small><span class="todo">Draft: exact title, link and one-line summary</span></small></a><span class="role"><span class="todo">Publication</span></span></li>
+            <li><a class="what" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">Inclusive marketing<small><span class="todo">Draft: exact title, link and one-line summary</span></small></a><span class="role"><span class="todo">Publication</span></span></li>
+          </ul>
+          <div class="btn-row"><a class="text-link" href="https://www.clippings.me/lbriellestrouse" target="_blank" rel="noopener">All clippings</a><a class="text-link" href="mailto:brielle@strousehouse.co?subject=Speaking%20invitation">Invite me to speak</a></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Kitchen: about ===== -->
-  <section class="room alt" id="about">
-    <div class="wrap room-grid">
-      <aside class="margin">
-        <p class="room-name">Kitchen<span>who lives here</span></p>
-        <svg class="mini-plan" data-room="kitchen" viewBox="26 36 488 308" aria-hidden="true"></svg>
-        <p class="note">Ask me about the Doodles.</p>
-      </aside>
-      <div class="main">
-        <h2>Hey, I'm Brielle. <em>Thanks for stopping by.</em></h2>
-        <div class="about-grid">
-          <figure class="portrait">
-            <img src="assets/img/brielle-about.jpg" alt="Lindsay Brielle Strouse">
-            <figcaption>Lindsay Brielle Strouse, founder</figcaption>
-          </figure>
-          <div class="about-copy">
-            <p>I help organizations turn complex change, ideas and technology into something people understand and act on.</p>
-            <p>I spent eight years at Google across insights, partner marketing and product marketing for Assistant, Maps and Google for Startups, working from San Francisco, Singapore and beyond. I then led digital inclusion partnerships at the Tony Blair Institute. I started Strouse House in 2020 as a home for the work I care about most: helping early-stage and transforming organizations with AI, go-to-market strategy, partnerships and culture.</p>
-            <p>I'm most interested in new models of work, living and education that let more people shape their own futures.</p>
-            <div class="facts">
-              <div class="fact"><p class="label">Based</p><div class="v">London, working globally. Right to work in the US, EU and UK.</div></div>
-              <div class="fact"><p class="label">Studied</p><div class="v">MBA, University of Oxford. BS, Media, Culture and Communication and Psychology, NYU.</div></div>
-              <div class="fact"><p class="label">Advising</p><div class="v">Collective Intelligence Project, IDEO AI practice, ITU AI Skills Coalition, Defy Ventures.</div></div>
-            </div>
-            <ul class="list">
-              <li><span class="what">Strouse House<small>Founder and principal</small></span><span class="role">2020 to now</span></li>
-              <li><span class="what">Tony Blair Institute<small>Head of Partnerships, Digital Inclusion</small></span><span class="role">2023 to 2025</span></li>
-              <li><span class="what">Paul Polman<small>Research and communications advisor, Net Positive</small></span><span class="role">2023</span></li>
-              <li><span class="what">Google<small>Global Marketing and Insights Lead</small></span><span class="role">2014 to 2022</span></li>
-            </ul>
-            <p class="label" style="margin-top:32px">Worked with</p>
-            <ul class="worked-with">
-              <li>Google</li><li>Tony Blair Institute</li><li>IDEO</li><li>Collective Intelligence Project</li><li>Impact Hub</li><li>Paul Polman</li><li>Apolitical</li><li>Defy Ventures</li><li>Art Works For Change</li><li>Happiness Foundation</li>
-            </ul>
-            <div class="btn-row"><a class="btn ghost" href="https://www.linkedin.com/in/lbriellestrouse" target="_blank" rel="noopener">Full history on LinkedIn</a></div>
-          </div>
+    <!-- ===== Kitchen: about ===== -->
+    <section id="about" data-floor="kitchen">
+      <svg class="floor-crop art" viewBox="0 1132 440 290" aria-hidden="true"></svg>
+      <p class="label red">Kitchen · Who lives here</p>
+      <h2>Hey, I'm Brielle. <em>Thanks for stopping by.</em></h2>
+      <p class="note">Ask me about the Doodles.</p>
+      <div class="about-head">
+        <img src="assets/img/brielle-about.jpg" alt="Lindsay Brielle Strouse">
+        <p>I help organizations turn complex change, ideas and technology into something people understand and act on.</p>
+      </div>
+      <div class="about-copy">
+        <p>I spent eight years at Google across insights, partner marketing and product marketing for Assistant, Maps and Google for Startups, working from San Francisco, Singapore and beyond. I then led digital inclusion partnerships at the Tony Blair Institute. I started Strouse House in 2020 as a home for the work I care about most: helping early-stage and transforming organizations with AI, go-to-market strategy, partnerships and culture.</p>
+        <p>I'm most interested in new models of work, living and education that let more people shape their own futures.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><p class="label">Based</p><div class="v">London, working globally. Right to work in the US, EU and UK.</div></div>
+        <div class="fact"><p class="label">Studied</p><div class="v">MBA, University of Oxford. BS, Media, Culture and Communication and Psychology, NYU.</div></div>
+        <div class="fact"><p class="label">Advising</p><div class="v">Collective Intelligence Project, IDEO AI practice, ITU AI Skills Coalition, Defy Ventures.</div></div>
+      </div>
+      <ul class="list">
+        <li><span class="what">Strouse House<small>Founder and principal</small></span><span class="role">2020 to now</span></li>
+        <li><span class="what">Tony Blair Institute<small>Head of Partnerships, Digital Inclusion</small></span><span class="role">2023 to 2025</span></li>
+        <li><span class="what">Paul Polman<small>Research and communications advisor, Net Positive</small></span><span class="role">2023</span></li>
+        <li><span class="what">Google<small>Global Marketing and Insights Lead</small></span><span class="role">2014 to 2022</span></li>
+      </ul>
+      <p class="label" style="margin-top:30px">Worked with</p>
+      <ul class="worked-with">
+        <li>Google</li><li>Tony Blair Institute</li><li>IDEO</li><li>Collective Intelligence Project</li><li>Impact Hub</li><li>Paul Polman</li><li>Apolitical</li><li>Defy Ventures</li><li>Art Works For Change</li><li>Happiness Foundation</li>
+      </ul>
+      <div class="btn-row"><a class="btn ghost" href="https://www.linkedin.com/in/lbriellestrouse" target="_blank" rel="noopener">Full history on LinkedIn</a></div>
+    </section>
+
+    <!-- ===== Hall: contact ===== -->
+    <section id="contact" data-floor="hall">
+      <svg class="floor-crop art" viewBox="0 1424 440 300" aria-hidden="true"></svg>
+      <p class="label red">Front door · Contact</p>
+      <h2>Let's talk about what you're <em>building.</em></h2>
+      <p class="note">Bring the messy version.</p>
+      <p class="lede">Tell me what's new and who it's for. I take on projects through Strouse House, and I'm open to the right full-time role.</p>
+      <div class="contact-rows">
+        <div class="contact-row">
+          <span class="k">Email</span>
+          <span class="v"><a href="mailto:brielle@strousehouse.co" id="email-text">brielle@strousehouse.co</a></span>
+          <button class="act" type="button" id="copy-email">Copy</button>
+        </div>
+        <div class="contact-row">
+          <span class="k">Book a call</span>
+          <span class="v"><a href="https://calendly.com/strouse" target="_blank" rel="noopener">calendly.com/strouse</a></span>
+          <a class="act" href="https://calendly.com/strouse" target="_blank" rel="noopener">Pick a time</a>
+        </div>
+        <div class="contact-row">
+          <span class="k">LinkedIn</span>
+          <span class="v"><a href="https://www.linkedin.com/in/lbriellestrouse" target="_blank" rel="noopener">in/lbriellestrouse</a></span>
+          <a class="act" href="https://www.linkedin.com/in/lbriellestrouse" target="_blank" rel="noopener">Connect</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- ===== Front door: contact ===== -->
-  <section class="room door" id="contact">
-    <div class="wrap room-grid">
-      <aside class="margin">
-        <p class="room-name">Front door<span>come in</span></p>
-        <svg class="mini-plan" data-room="door" viewBox="26 36 488 308" aria-hidden="true"></svg>
-        <p class="note">Bring the messy version.</p>
-      </aside>
-      <div class="main">
-        <h2>Let's talk about what you're <em>building.</em></h2>
-        <p class="lede">Tell me what's new and who it's for. I take on projects through Strouse House, and I'm open to the right full-time role.</p>
-        <div class="contact-rows">
-          <div class="contact-row">
-            <span class="k">Email</span>
-            <span class="v"><a href="mailto:brielle@strousehouse.co" id="email-text">brielle@strousehouse.co</a></span>
-            <button class="act" type="button" id="copy-email">Copy</button>
-          </div>
-          <div class="contact-row">
-            <span class="k">Book a call</span>
-            <span class="v"><a href="https://calendly.com/strouse" target="_blank" rel="noopener">calendly.com/strouse</a></span>
-            <a class="act" href="https://calendly.com/strouse" target="_blank" rel="noopener">Pick a time</a>
-          </div>
-          <div class="contact-row">
-            <span class="k">LinkedIn</span>
-            <span class="v"><a href="https://www.linkedin.com/in/lbriellestrouse" target="_blank" rel="noopener">in/lbriellestrouse</a></span>
-            <a class="act" href="https://www.linkedin.com/in/lbriellestrouse" target="_blank" rel="noopener">Connect</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <aside class="scene" aria-label="A hand-drawn section of Strouse House, from the attic down to the front door. Hover over details for small notes.">
+    <svg class="house art" viewBox="0 0 440 1730" role="img" aria-label="Hand-drawn cross-section of a house">
+      <g id="house-art">
+  <g class="pencil">
+    <!-- sky: a small plane on its way somewhere -->
+    <path class="ink thin" d="M24 58 C 70 46, 110 42, 148 36" stroke-dasharray="3 6"/>
+    <g data-egg="Somewhere between San Francisco, Singapore and London." tabindex="0" class="egg" transform="translate(-170 6)">
+      <path class="fi f-paper" d="M318 30 L352 26 L362 22 L366 25 L360 30 L364 36 L358 37 L350 33 L318 34 Z"/>
+      <path class="ink thin" d="M336 29 L328 18 L334 18 L346 28 M336 32 L330 42 L336 42 L346 33"/>
+    </g>
+    <path class="star" d="M74 120 l2 -6 l2 6 l6 2 l-6 2 l-2 6 l-2 -6 l-6 -2 z"/>
+    <path class="star" d="M44 186 l1.5 -4 l1.5 4 l4 1.5 l-4 1.5 l-1.5 4 l-1.5 -4 l-4 -1.5 z"/>
+    <path class="star" d="M120 70 l1.5 -4 l1.5 4 l4 1.5 l-4 1.5 l-1.5 4 l-1.5 -4 l-4 -1.5 z"/>
 
+    <!-- chimney, roof, attic -->
+    <path class="ink thin" d="M334 64 c -12 -10 8 -18 -2 -30 c -8 -10 10 -16 4 -28"/>
+    <rect class="fi f-terra" x="318" y="66" width="32" height="96"/>
+    <rect class="fi f-terra" x="312" y="62" width="44" height="10"/>
+    <path class="fi f-red roof" d="M14 266 L220 36 L426 266 Z"/>
+    <path class="fi f-attic" d="M52 252 L220 66 L388 252 Z"/>
+    <path class="ink hair" d="M40 252 L220 52 M400 252 L220 52"/>
+    <rect class="fi f-sky win" x="0" y="0" width="58" height="12" transform="translate(104 196) rotate(-47.6)"/>
+    <!-- bunting -->
+    <path class="ink thin" d="M150 150 Q 220 170 292 150"/>
+    <path class="fi f-red" d="M162 154 l10 2 l-6 12 z"/><path class="fi f-gold" d="M184 159 l10 1 l-5 12 z"/><path class="fi f-green" d="M206 161 l10 0 l-5 12 z"/><path class="fi f-red" d="M228 161 l10 -1 l-4 12 z"/><path class="fi f-gold" d="M250 158 l10 -2 l-3 12 z"/><path class="fi f-green" d="M272 154 l9 -3 l-2 12 z"/>
+    <!-- telescope -->
+    <g data-egg="A telescope in the attic. Most good strategy starts by looking past the next quarter." tabindex="0" class="egg">
+      <path class="ink" d="M168 208 L148 250 M168 208 L170 250 M168 208 L190 250"/>
+      <g transform="rotate(-138 168 206)"><rect class="fi f-gold" x="132" y="199" width="74" height="13" rx="2"/><rect class="fi f-ink" x="124" y="197" width="12" height="17" rx="1"/><rect class="fi f-paper" x="204" y="201" width="6" height="9"/></g>
+    </g>
+    <!-- steamer trunk -->
+    <g data-egg="An old steamer trunk. Packed and unpacked across three continents." tabindex="0" class="egg">
+      <rect class="fi f-wood" x="246" y="212" width="84" height="40" rx="3"/>
+      <path class="ink thin" d="M246 224 H330 M266 212 V252 M310 212 V252"/>
+      <circle class="fi f-paper" cx="288" cy="236" r="7"/><rect class="fi f-sky" x="250" y="232" width="12" height="9" transform="rotate(-8 256 236)"/><rect class="fi f-gold" x="314" y="230" width="12" height="9" transform="rotate(10 320 234)"/>
+    </g>
+    <text class="floor-label" data-floor="attic" x="220" y="120" text-anchor="middle">ATTIC</text>
+    <rect class="fi f-ink slab" x="34" y="252" width="372" height="12"/>
+
+    <!-- walls and back-wall tints -->
+    <rect class="f-wall1" x="42" y="264" width="356" height="276"/>
+    <rect class="f-wall2" x="42" y="552" width="356" height="280"/>
+    <rect class="f-wall3" x="42" y="844" width="356" height="280"/>
+    <rect class="f-wall4" x="42" y="1136" width="356" height="280"/>
+    <rect class="f-wall1" x="42" y="1428" width="356" height="232"/>
+    <rect class="fi f-ink" x="34" y="262" width="8" height="1400"/>
+    <rect class="fi f-ink" x="398" y="262" width="8" height="1400"/>
+    <rect class="fi f-ink slab" x="34" y="540" width="372" height="12"/>
+    <rect class="fi f-ink slab" x="34" y="832" width="372" height="12"/>
+    <rect class="fi f-ink slab" x="34" y="1124" width="372" height="12"/>
+    <rect class="fi f-ink slab" x="34" y="1416" width="372" height="12"/>
+    <rect class="fi f-ink slab" x="20" y="1660" width="400" height="14"/>
+
+    <!-- ===== LIVING ROOM ===== -->
+    <g data-egg="Three clocks: San Francisco, London, Singapore. Cities I've worked from, each roughly eight hours apart." tabindex="0" class="egg">
+      <circle class="fi f-paper" cx="86" cy="320" r="15"/><circle class="fi f-paper" cx="128" cy="320" r="15"/><circle class="fi f-paper" cx="170" cy="320" r="15"/>
+      <path class="ink thin" d="M86 320 L86 308 M86 320 L93 324 M128 320 L128 308 M128 320 L128 312 M170 320 L170 308 M170 320 L163 324"/>
+      <text class="tiny" x="86" y="348" text-anchor="middle">SF</text><text class="tiny" x="128" y="348" text-anchor="middle">LDN</text><text class="tiny" x="170" y="348" text-anchor="middle">SGP</text>
+    </g>
+    <rect class="fi f-sky win" x="248" y="298" width="100" height="104"/>
+    <path class="ink thin" d="M298 298 V402 M248 350 H348"/>
+    <path class="fi f-red" d="M238 290 Q 248 350 244 420 L256 420 Q 252 350 256 290 Z"/>
+    <path class="fi f-red" d="M358 290 Q 348 350 352 420 L340 420 Q 344 350 340 290 Z"/>
+    <path class="ink" d="M232 290 H364"/>
+    <ellipse class="fi f-red" cx="160" cy="532" rx="112" ry="8"/>
+    <rect class="fi f-green" x="72" y="440" width="160" height="42" rx="8"/>
+    <rect class="fi f-green" x="78" y="476" width="148" height="30" rx="4"/>
+    <rect class="fi f-green" x="60" y="462" width="22" height="50" rx="6"/>
+    <rect class="fi f-green" x="222" y="462" width="22" height="50" rx="6"/>
+    <rect class="fi f-gold" x="96" y="448" width="34" height="26" rx="5" transform="rotate(-8 113 461)"/>
+    <rect class="fi f-paper" x="176" y="450" width="32" height="24" rx="5" transform="rotate(6 192 462)"/>
+    <path class="ink" d="M76 512 V528 M228 512 V528"/>
+    <path class="ink" d="M276 536 V432"/><ellipse class="fi f-ink" cx="276" cy="536" rx="14" ry="3"/>
+    <path class="fi f-gold" d="M258 432 H294 L286 404 H266 Z"/>
+    <rect class="fi f-terra" x="334" y="500" width="40" height="38"/>
+    <path class="fi f-sage" d="M354 500 C 330 470, 326 450, 344 440 C 346 462, 352 476, 354 500 Z M354 500 C 372 468, 386 456, 380 432 C 366 446, 358 470, 354 500 Z M354 500 C 352 470, 356 446, 362 420 C 344 440, 348 470, 354 500 Z"/>
+    <text class="floor-label" data-floor="living" x="54" y="288">LIVING ROOM</text>
+
+    <!-- ===== STUDY ===== -->
+    <g data-egg="The red thread: San Francisco, New York, Paris, London, Frankfurt, Accra, Delhi, Singapore, Jakarta. Projects and study across four continents." tabindex="0" class="egg">
+      <rect class="fi f-wood" x="62" y="584" width="196" height="122" rx="2"/>
+      <rect class="fi f-paper" x="70" y="592" width="180" height="106"/>
+      <path class="fi f-map" d="M84 610 C 96 600, 124 602, 132 612 C 136 624, 124 634, 116 640 C 108 644, 100 636, 96 630 C 88 626, 80 620, 84 610 Z"/>
+      <path class="fi f-map" d="M118 648 C 128 646, 134 654, 132 664 C 130 676, 124 686, 120 690 C 116 680, 112 666, 114 656 Z"/>
+      <path class="fi f-map" d="M154 606 C 162 600, 176 602, 180 608 C 182 616, 172 620, 162 620 C 156 618, 150 612, 154 606 Z"/>
+      <path class="fi f-map" d="M158 626 C 170 622, 184 628, 184 640 C 184 654, 176 668, 170 674 C 164 664, 158 652, 156 640 Z"/>
+      <path class="fi f-map" d="M182 604 C 200 598, 230 600, 240 612 C 244 624, 232 632, 222 640 C 212 646, 200 640, 192 632 C 184 624, 178 614, 182 604 Z"/>
+      <path class="fi f-map" d="M222 672 C 232 668, 242 672, 240 682 C 236 688, 226 688, 222 682 Z"/>
+      <path class="thread" d="M92 622 L120 618 L162 616 L166 612 L170 614 L166 648 L204 632 L222 650 L224 656"/>
+      <circle class="pin" cx="92" cy="622" r="2.6"/><circle class="pin" cx="120" cy="618" r="2.6"/><circle class="pin" cx="162" cy="616" r="2.6"/><circle class="pin" cx="166" cy="612" r="2.6"/><circle class="pin" cx="170" cy="614" r="2.6"/>
+      <circle class="pin" cx="166" cy="648" r="2.6"/><circle class="pin" cx="204" cy="632" r="2.6"/><circle class="pin" cx="222" cy="650" r="2.6"/><circle class="pin" cx="224" cy="656" r="2.6"/>
+    </g>
+    <rect class="fi f-sky win" x="296" y="596" width="84" height="98"/>
+    <path class="ink thin" d="M338 596 V694 M296 645 H380"/>
+    <rect class="fi f-wood" x="290" y="694" width="96" height="8"/>
+    <rect class="fi f-terra" x="352" y="676" width="18" height="18"/><path class="fi f-sage" d="M361 676 c -10 -8 -10 -18 -2 -22 c 2 8 4 14 2 22 z M361 676 c 8 -10 14 -14 12 -22 c -8 4 -10 12 -12 22 z"/>
+    <rect class="fi f-wood" x="66" y="744" width="220" height="12"/>
+    <path class="ink" d="M78 756 V830 M274 756 V830"/>
+    <rect class="fi f-wood" x="196" y="756" width="66" height="40"/><path class="ink thin" d="M196 776 H262 M226 764 H232 M226 784 H232"/>
+    <rect class="fi f-ink" x="124" y="704" width="54" height="38" rx="2"/><rect class="fi f-paper" x="129" y="708" width="44" height="30"/><rect class="fi f-ink" x="116" y="740" width="70" height="5" rx="1"/>
+    <rect class="fi f-paper" x="200" y="724" width="16" height="20" rx="2"/><path class="ink thin" d="M216 728 q8 0 8 6 q0 6 -8 6"/>
+    <path class="ink" d="M250 744 L262 712 L240 698"/><path class="fi f-red" d="M228 690 L250 704 L244 712 L224 700 Z"/>
+    <rect class="fi f-red" x="318" y="804" width="58" height="9"/><rect class="fi f-paper" x="322" y="813" width="52" height="9"/><rect class="fi f-green" x="316" y="822" width="62" height="10"/>
+    <text class="floor-label" data-floor="study" x="54" y="576">STUDY</text>
+
+    <!-- ===== LIBRARY ===== -->
+    <rect class="fi f-wood" x="56" y="868" width="154" height="256"/>
+    <rect class="fi f-cream" x="64" y="876" width="138" height="244"/>
+    <rect class="fi f-wood" x="64" y="932" width="138" height="7"/>
+    <rect class="fi f-wood" x="64" y="992" width="138" height="7"/>
+    <rect class="fi f-wood" x="64" y="1052" width="138" height="7"/>
+    <rect class="fi f-navy" x="68" y="881" width="11" height="51"/>
+    <rect class="fi f-sage" x="80" y="886" width="11" height="46"/>
+    <rect class="fi f-gold" x="92" y="882" width="9" height="50"/>
+    <rect class="fi f-green" x="102" y="887" width="8" height="45"/>
+    <rect class="fi f-red" x="111" y="882" width="12" height="50"/>
+    <rect class="fi f-gold" x="124" y="888" width="12" height="44"/>
+    <rect class="fi f-green" x="137" y="894" width="12" height="38"/>
+    <rect class="fi f-sage" x="150" y="894" width="8" height="38"/>
+    <rect class="fi f-blush" x="159" y="894" width="12" height="38"/>
+    <rect class="fi f-wine" x="172" y="885" width="11" height="47"/>
+    <rect class="fi f-red" x="184" y="884" width="9" height="48"/>
+    <rect class="fi f-wine" x="68" y="944" width="11" height="48"/>
+    <rect class="fi f-blush" x="80" y="953" width="14" height="39"/>
+    <rect class="fi f-red" x="95" y="951" width="14" height="41"/>
+    <rect class="fi f-sky" x="110" y="945" width="8" height="47"/>
+    <rect class="fi f-green" x="119" y="941" width="8" height="51"/>
+    <rect class="fi f-sage" x="128" y="941" width="8" height="51"/>
+    <rect class="fi f-navy" x="137" y="940" width="9" height="52"/>
+    <rect class="fi f-green" x="147" y="943" width="11" height="49"/>
+    <rect class="fi f-paper" x="159" y="944" width="12" height="48"/>
+    <rect class="fi f-red" x="172" y="953" width="10" height="39"/>
+    <rect class="fi f-gold" x="183" y="942" width="11" height="50"/>
+    <rect class="fi f-navy" x="72" y="1016" width="8" height="36" transform="rotate(12 80 1052)"/>
+    <rect class="fi f-navy" x="88" y="1004" width="9" height="48"/>
+    <rect class="fi f-gold" x="98" y="1011" width="12" height="41"/>
+    <rect class="fi f-sky" x="111" y="1004" width="11" height="48"/>
+    <rect class="fi f-paper" x="127" y="1013" width="11" height="39" transform="rotate(12 138 1052)"/>
+    <rect class="fi f-green" x="146" y="1011" width="8" height="41"/>
+    <rect class="fi f-paper" x="155" y="1012" width="8" height="40"/>
+    <rect class="fi f-paper" x="164" y="1002" width="8" height="50"/>
+    <rect class="fi f-sage" x="177" y="1015" width="11" height="37" transform="rotate(12 188 1052)"/>
+    <rect class="fi f-blush" x="72" y="1071" width="12" height="49" transform="rotate(12 84 1120)"/>
+    <rect class="fi f-navy" x="92" y="1062" width="10" height="58"/>
+    <rect class="fi f-gold" x="103" y="1072" width="14" height="48"/>
+    <rect class="fi f-sage" x="118" y="1067" width="13" height="53"/>
+    <rect class="fi f-wine" x="132" y="1071" width="13" height="49"/>
+    <rect class="fi f-green" x="146" y="1064" width="9" height="56"/>
+    <rect class="fi f-wine" x="156" y="1073" width="11" height="47"/>
+    <rect class="fi f-navy" x="168" y="1064" width="10" height="56"/>
+    <rect class="fi f-green" x="179" y="1071" width="10" height="49"/>
+    <g data-egg="Studied in New York and Paris, worked from San Francisco and Singapore, lives in London." tabindex="0" class="egg">
+      <circle class="fi f-sky" cx="262" cy="994" r="28"/>
+      <path class="fi f-map" d="M246 982 c 8 -6 18 -4 20 4 c 2 8 -6 10 -12 12 c -6 2 -10 -8 -8 -16 z M266 1004 c 8 -2 14 4 12 10 c -4 4 -10 4 -12 -2 z"/>
+      <path class="ink thin" d="M234 994 H290 M262 966 q -16 28 0 56"/>
+      <path class="ink" d="M226 990 a 36 36 0 0 0 72 8"/>
+      <path class="ink" d="M262 1030 V1100 M244 1122 L262 1100 L280 1122"/>
+    </g>
+    <path class="fi f-red" d="M306 1046 q 0 -26 22 -26 h 40 q 22 0 22 26 v 40 h -84 z"/>
+    <rect class="fi f-red" x="296" y="1060" width="20" height="50" rx="6"/>
+    <rect class="fi f-red" x="380" y="1060" width="20" height="50" rx="6" transform="translate(-6 0)"/>
+    <rect class="fi f-paper" x="314" y="1078" width="68" height="22" rx="4"/>
+    <path class="ink" d="M308 1110 V1122 M386 1110 V1122"/>
+    <path class="ink" d="M352 1018 V940"/><path class="fi f-gold" d="M336 940 H368 L360 916 H344 Z"/>
+    <text class="floor-label" data-floor="library" x="226" y="868">LIBRARY</text>
+
+    <!-- ===== KITCHEN ===== -->
+    <rect class="fi f-sky win" x="76" y="1168" width="96" height="84"/>
+    <path class="ink thin" d="M124 1168 V1252 M76 1210 H172"/>
+    <rect class="fi f-wood" x="70" y="1252" width="108" height="7"/>
+    <rect class="fi f-terra" x="84" y="1238" width="14" height="14"/><rect class="fi f-terra" x="116" y="1238" width="14" height="14"/><rect class="fi f-terra" x="148" y="1238" width="14" height="14"/>
+    <path class="fi f-sage" d="M91 1238 c -6 -8 -4 -14 0 -16 c 4 4 4 10 0 16 z M123 1238 c -8 -6 -8 -14 -2 -18 c 4 6 4 12 2 18 z M155 1238 c -4 -8 0 -16 4 -16 c 2 6 0 12 -4 16 z"/>
+    <rect class="fi f-wood" x="194" y="1262" width="70" height="6"/>
+    <rect class="fi f-paper" x="200" y="1242" width="12" height="20"/><rect class="fi f-gold" x="218" y="1246" width="12" height="16"/><rect class="fi f-paper" x="236" y="1240" width="12" height="22"/>
+    <rect class="fi f-green" x="50" y="1338" width="214" height="78"/>
+    <path class="ink thin" d="M120 1338 V1416 M190 1338 V1416"/>
+    <circle class="fi f-gold" cx="112" cy="1376" r="2.5"/><circle class="fi f-gold" cx="128" cy="1376" r="2.5"/><circle class="fi f-gold" cx="182" cy="1376" r="2.5"/><circle class="fi f-gold" cx="198" cy="1376" r="2.5"/>
+    <rect class="fi f-wood" x="44" y="1328" width="226" height="11"/>
+    <g data-egg="The kettle is always on. A London habit." tabindex="0" class="egg">
+      <path class="fi f-paper" d="M78 1328 q -4 -26 18 -28 h 4 q 22 2 18 28 z"/><path class="ink" d="M84 1304 q 14 -14 28 0"/><path class="ink thin" d="M116 1312 l 10 -6"/>
+      <path class="ink thin" d="M98 1292 c -6 -6 4 -10 -2 -16 c -4 -4 4 -8 0 -12"/>
+    </g>
+    <path class="fi f-red" d="M150 1328 q -6 -22 16 -24 q 22 2 16 24 z"/><path class="ink" d="M182 1314 q 10 -2 8 -10 M150 1316 l -10 -8"/>
+    <ellipse class="fi f-paper" cx="232" cy="1322" rx="22" ry="7"/><circle class="fi f-gold" cx="224" cy="1314" r="6"/><circle class="fi f-red" cx="238" cy="1313" r="6"/>
+    <g data-egg="Postcards on the fridge: Jaipur, Paris, Frankfurt and Singapore." tabindex="0" class="egg">
+      <rect class="fi f-paper" x="294" y="1190" width="92" height="226" rx="6"/>
+      <path class="ink thin" d="M294 1266 H386 M300 1222 V1252 M300 1280 V1330"/>
+      <rect class="fi f-blush" x="314" y="1200" width="26" height="18" transform="rotate(-6 327 1209)"/>
+      <rect class="fi f-sky" x="348" y="1206" width="26" height="18" transform="rotate(5 361 1215)"/>
+      <rect class="fi f-gold" x="318" y="1284" width="26" height="18" transform="rotate(4 331 1293)"/>
+      <rect class="fi f-sage" x="352" y="1290" width="26" height="18" transform="rotate(-7 365 1299)"/>
+    </g>
+    <text class="floor-label" data-floor="kitchen" x="226" y="1160">KITCHEN</text>
+
+    <!-- ===== HALL ===== -->
+    <path class="fi f-green door" d="M184 1658 V1522 A38 38 0 0 1 260 1522 V1658 Z"/>
+    <path class="ink thin" d="M200 1540 H244 V1600 H200 Z M200 1612 H244 V1648 H200 Z"/>
+    <circle class="fi f-gold" cx="250" cy="1600" r="3.5"/><rect class="fi f-gold" x="212" y="1606" width="20" height="4"/>
+    <path class="ink" d="M176 1658 V1514 A46 46 0 0 1 268 1514 V1658"/>
+    <g data-egg="Welcome. Willkommen. Bienvenue. Selamat datang." tabindex="0" class="egg">
+      <rect class="fi f-terra" x="170" y="1650" width="104" height="10" rx="2"/>
+    </g>
+    <path class="ink" d="M58 1496 H150"/>
+    <circle class="fi f-ink" cx="72" cy="1496" r="3"/><circle class="fi f-ink" cx="104" cy="1496" r="3"/><circle class="fi f-ink" cx="136" cy="1496" r="3"/>
+    <path class="fi f-red" d="M72 1498 l -14 10 l -6 70 h 40 l -6 -70 z"/>
+    <path class="fi f-sage" d="M104 1498 l -12 8 l -4 52 h 32 l -4 -52 z"/>
+    <path class="fi f-gold" d="M136 1498 q -6 30 -2 70 h 8 q 4 -40 -2 -70 z"/>
+    <rect class="fi f-ink" x="70" y="1618" width="30" height="40" rx="3"/>
+    <path class="ink" d="M80 1618 V1576 q 0 -8 6 -8 M92 1618 V1584"/>
+    <path class="fi f-red" d="M92 1584 q -14 -2 -14 10 l 14 0 z"/>
+    <ellipse class="fi f-paper" cx="344" cy="1518" rx="26" ry="32"/><ellipse class="fi f-sky" cx="344" cy="1518" rx="18" ry="24"/>
+    <rect class="fi f-wood" x="296" y="1576" width="96" height="9"/><path class="ink" d="M304 1585 V1658 M384 1585 V1658"/>
+    <g data-egg="Two passports, American and German, and a UK visa. Ask me about the stamps." tabindex="0" class="egg">
+      <rect class="fi f-navy" x="312" y="1566" width="20" height="10" rx="1" transform="rotate(-6 322 1571)"/>
+      <rect class="fi f-wine" x="336" y="1566" width="20" height="10" rx="1" transform="rotate(5 346 1571)"/>
+    </g>
+    <circle class="fi f-paper" cx="374" cy="1570" r="6"/>
+    <g data-egg="Luggage tags: SFO, SIN, LHR." tabindex="0" class="egg">
+      <rect class="fi f-sage" x="310" y="1600" width="66" height="58" rx="6"/>
+      <path class="ink" d="M330 1600 V1590 H356 V1600 M310 1628 H376"/>
+      <rect class="fi f-paper" x="300" y="1606" width="14" height="10" transform="rotate(-14 307 1611)"/><rect class="fi f-paper" x="296" y="1622" width="14" height="10" transform="rotate(8 303 1627)"/>
+      <text class="tag-text" x="301" y="1614" transform="rotate(-14 307 1611)">SFO</text><text class="tag-text" x="297" y="1630" transform="rotate(8 303 1627)">SIN</text>
+    </g>
+    <text class="floor-label" data-floor="hall" x="54" y="1452">HALL</text>
+
+    <!-- garden -->
+    <path class="fi f-sage" d="M0 1662 q 2 -26 16 -24 q 6 -14 18 -4 v 30 z"/>
+    <path class="fi f-sage" d="M406 1662 v -30 q 14 -10 20 4 q 14 -2 14 26 z"/>
+    <path class="ink thin" d="M200 1676 L188 1720 M244 1676 L256 1720"/>
+    <path class="ink thin" d="M40 1690 l 4 -8 l 4 8 M80 1700 l 4 -8 l 4 8 M330 1694 l 4 -8 l 4 8 M380 1704 l 4 -8 l 4 8"/>
+  </g>
+
+  <!-- levels, like an architect's section -->
+  <g class="levels">
+    <path d="M410 252 h 6 l -3 5 z M410 540 h 6 l -3 5 z M410 832 h 6 l -3 5 z M410 1124 h 6 l -3 5 z M410 1416 h 6 l -3 5 z M410 1660 h 6 l -3 5 z"/>
+    <text x="419" y="257">+14.0</text><text x="419" y="545">+11.2</text><text x="419" y="837">+8.4</text><text x="419" y="1129">+5.6</text><text x="419" y="1421">+2.8</text><text x="419" y="1665">±0.0</text>
+  </g>
+</g>
+
+    </svg>
+    <div class="egg-tip" role="status"></div>
+    <p class="scene-hint">hover around the house</p>
+  </aside>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <span>© <span id="year">2026</span> Strouse House · Lindsay Brielle Strouse · London</span>
-    <span class="hint">two things in this house reward curiosity</span>
+    <span class="hint">a few things in this house reward curiosity</span>
   </div>
 </footer>
 

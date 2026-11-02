@@ -1,66 +1,107 @@
 (function () {
-  document.documentElement.classList.add('js');
   var header = document.querySelector('.site-header');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // "You are here" plans in each room's margin, drawn from the main floor plan's rooms
-  var ROOMS = {
-    living: [30, 40, 210, 160],
-    study: [240, 40, 270, 160],
-    kitchen: [30, 200, 170, 140],
-    hall: [200, 200, 140, 140],
-    library: [340, 200, 170, 140],
-    door: [250, 330, 44, 12]
-  };
-  var NS = 'http://www.w3.org/2000/svg';
-  document.querySelectorAll('.mini-plan').forEach(function (svg) {
-    var here = svg.getAttribute('data-room');
-    Object.keys(ROOMS).forEach(function (name) {
-      if (name === 'door' && here !== 'door') return;
-      var r = ROOMS[name];
-      var rect = document.createElementNS(NS, 'rect');
-      rect.setAttribute('x', r[0]); rect.setAttribute('y', r[1]);
-      rect.setAttribute('width', r[2]); rect.setAttribute('height', r[3]);
-      if (name === here) rect.setAttribute('class', 'here');
-      svg.appendChild(rect);
+  // Small-screen versions: a copy of each floor sits above its section
+  var art = document.getElementById('house-art');
+  if (art) {
+    document.querySelectorAll('.floor-crop').forEach(function (svg) {
+      var copy = art.cloneNode(true);
+      copy.removeAttribute('id');
+      copy.querySelectorAll('[tabindex]').forEach(function (el) { el.removeAttribute('tabindex'); el.removeAttribute('data-egg'); el.classList.remove('egg'); });
+      svg.appendChild(copy);
     });
-    var outer = document.createElementNS(NS, 'rect');
-    outer.setAttribute('class', 'outer');
-    outer.setAttribute('x', 30); outer.setAttribute('y', 40); outer.setAttribute('width', 480); outer.setAttribute('height', 300);
-    svg.appendChild(outer);
-  });
-
-  // Red-pen circles drawn around a few results
-  var CIRCLE = 'M10 32 C 4 14, 58 4, 118 6 C 178 8, 199 20, 195 34 C 191 50, 112 57, 60 53 C 22 50, 2 41, 16 20';
-  document.querySelectorAll('.circled').forEach(function (el) {
-    var svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '0 0 200 60');
-    svg.setAttribute('preserveAspectRatio', 'none');
-    svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('class', 'drawable');
-    var p = document.createElementNS(NS, 'path');
-    p.setAttribute('d', CIRCLE);
-    p.setAttribute('pathLength', '1');
-    svg.appendChild(p);
-    el.appendChild(svg);
-  });
-  var drawables = document.querySelectorAll('.drawable');
-  if ('IntersectionObserver' in window && !reduceMotion) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('drawn'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -15% 0px' });
-    drawables.forEach(function (d) { io.observe(d); });
-  } else {
-    drawables.forEach(function (d) { d.classList.add('drawn'); });
   }
 
-  // Highlight the section you're in
+  // ---------- The house travels with you ----------
+  // Center of each floor in the drawing's own units (viewBox 0 0 440 1730)
+  var FLOORS = { attic: 170, living: 402, study: 692, library: 984, kitchen: 1276, hall: 1560 };
+  var HOUSE_W = 440, HOUSE_H = 1730;
+  var scene = document.querySelector('.scene');
+  var house = scene && scene.querySelector('.house');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.story > section[data-floor]'));
+  var labels = {};
+  document.querySelectorAll('.house .floor-label').forEach(function (t) { labels[t.getAttribute('data-floor')] = t; });
+  var anchors = [];
+  var ticking = false;
+
+  function measure() {
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    anchors = sections.map(function (s) {
+      var top = s.getBoundingClientRect().top + window.scrollY - header.offsetHeight;
+      return Math.max(0, Math.min(top, maxScroll - 2));
+    });
+    update();
+  }
+
+  function ease(t) { return t * t * (3 - 2 * t); }
+
+  function update() {
+    ticking = false;
+    if (!house || scene.offsetWidth < 50) return;
+    var y = window.scrollY;
+    var i = 0;
+    while (i < anchors.length - 1 && y >= anchors[i + 1]) i++;
+    var from = FLOORS[sections[i].getAttribute('data-floor')];
+    var center = from;
+    if (i < anchors.length - 1) {
+      var span = Math.max(1, anchors[i + 1] - anchors[i]);
+      var p = (y - anchors[i]) / span;
+      var t = ease(Math.min(1, Math.max(0, (p - 0.55) / 0.45)));
+      var to = FLOORS[sections[i + 1].getAttribute('data-floor')];
+      center = from + (to - from) * t;
+    }
+    var scale = scene.clientWidth / HOUSE_W;
+    var view = scene.clientHeight;
+    var ty = view / 2 - center * scale;
+    ty = Math.min(0, Math.max(view - HOUSE_H * scale, ty));
+    house.style.transform = 'translateY(' + ty.toFixed(1) + 'px)';
+
+    var nearest = null, best = Infinity;
+    Object.keys(FLOORS).forEach(function (k) {
+      var d = Math.abs(FLOORS[k] - center);
+      if (d < best) { best = d; nearest = k; }
+    });
+    Object.keys(labels).forEach(function (k) { labels[k].classList.toggle('here', k === nearest); });
+  }
+
+  function onScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+  measure();
+  onScroll();
+
+  // ---------- Small notes hidden in the drawing ----------
+  var tip = scene && scene.querySelector('.egg-tip');
+  var hint = scene && scene.querySelector('.scene-hint');
+  function showTip(text, x, y) {
+    if (!tip) return;
+    tip.textContent = text;
+    var r = scene.getBoundingClientRect();
+    var left = Math.min(Math.max(8, x - r.left - 120), r.width - 248);
+    var top = Math.max(8, y - r.top - tip.offsetHeight - 16);
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tip.classList.add('show');
+    if (hint) hint.style.display = 'none';
+  }
+  function hideTip() { if (tip) tip.classList.remove('show'); }
+  document.querySelectorAll('.scene .egg').forEach(function (egg) {
+    var text = egg.getAttribute('data-egg');
+    egg.setAttribute('role', 'button');
+    egg.setAttribute('aria-label', text);
+    egg.addEventListener('pointerenter', function (e) { showTip(text, e.clientX, e.clientY); });
+    egg.addEventListener('pointermove', function (e) { showTip(text, e.clientX, e.clientY); });
+    egg.addEventListener('pointerleave', hideTip);
+    egg.addEventListener('focus', function () { var b = egg.getBoundingClientRect(); showTip(text, b.left + b.width / 2, b.top); });
+    egg.addEventListener('blur', hideTip);
+  });
+
+  // ---------- Navigation ----------
   var links = {};
   document.querySelectorAll('.nav a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
   if ('IntersectionObserver' in window) {
@@ -70,10 +111,8 @@
         Object.keys(links).forEach(function (id) { links[id].classList.toggle('active', id === e.target.id); });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    document.querySelectorAll('main section[id]').forEach(function (s) { spy.observe(s); });
+    sections.forEach(function (s) { spy.observe(s); });
   }
-
-  // Land just below the sticky header
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href').slice(1);
@@ -92,9 +131,10 @@
     btn.addEventListener('click', function () {
       var want = btn.getAttribute('data-filter');
       filterButtons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-      document.querySelectorAll('#work-cards .card').forEach(function (c) {
+      document.querySelectorAll('#work-list .project').forEach(function (c) {
         c.hidden = want !== 'all' && c.getAttribute('data-cat') !== want;
       });
+      measure();
     });
   });
 
@@ -102,16 +142,14 @@
   var copyBtn = document.getElementById('copy-email');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
-      var text = 'brielle@strousehouse.co';
       function done() { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = 'Copy'; }, 2000); }
       function fallback() {
-        var el = document.getElementById('email-text');
-        var range = document.createRange(); range.selectNodeContents(el);
+        var range = document.createRange(); range.selectNodeContents(document.getElementById('email-text'));
         var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
         copyBtn.textContent = 'Selected';
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(done, fallback);
+        navigator.clipboard.writeText('brielle@strousehouse.co').then(done, fallback);
       } else { fallback(); }
     });
   }
@@ -119,47 +157,30 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // ---------- Two things that reward curiosity ----------
-
+  // ---------- Two older secrets ----------
   var toastEl, toastTimer;
   function toast(html) {
-    if (!toastEl) {
-      toastEl = document.createElement('div');
-      toastEl.className = 'toast';
-      toastEl.setAttribute('role', 'status');
-      document.body.appendChild(toastEl);
-    }
-    toastEl.innerHTML = html;
-    toastEl.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 6500);
+    if (!toastEl) { toastEl = document.createElement('div'); toastEl.className = 'toast'; toastEl.setAttribute('role', 'status'); document.body.appendChild(toastEl); }
+    toastEl.innerHTML = html; toastEl.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 6500);
   }
-
-  // 1. Knock on the little house five times and the lights come on
-  var house = document.querySelector('.house-mark');
+  var mark = document.querySelector('.house-mark');
   var knocks = 0, knockTimer;
-  if (house) {
-    house.addEventListener('click', function () {
+  if (mark) {
+    mark.addEventListener('click', function () {
       knocks += 1;
-      house.classList.remove('nudge'); void house.getBoundingClientRect(); house.classList.add('nudge');
-      clearTimeout(knockTimer);
-      knockTimer = setTimeout(function () { knocks = 0; }, 1600);
+      mark.classList.remove('nudge'); void mark.getBoundingClientRect(); mark.classList.add('nudge');
+      clearTimeout(knockTimer); knockTimer = setTimeout(function () { knocks = 0; }, 1600);
       if (knocks >= 5) {
         knocks = 0;
-        var on = document.body.classList.toggle('lights-on');
-        if (on) toast('Lights are on. You knock five times to see what happens. So do I. <a href="#contact">Come in.</a>');
+        if (document.body.classList.toggle('lights-on')) toast('Lights are on. You knock five times to see what happens. So do I. <a href="#contact">Come in.</a>');
       }
     });
   }
-
-  // 2. Type "hey google" anywhere
   var typed = '', phrase = 'hey google';
   document.addEventListener('keydown', function (e) {
     if (e.metaKey || e.ctrlKey || e.altKey || !e.key || e.key.length !== 1) return;
     typed = (typed + e.key.toLowerCase()).slice(-phrase.length);
-    if (typed === phrase) {
-      typed = '';
-      toast('Old habits. I spent years teaching people what to say to their phones. Here, <a href="#contact">an email works better</a>.');
-    }
+    if (typed === phrase) { typed = ''; toast('Old habits. I spent years teaching people what to say to their phones. Here, <a href="#contact">an email works better</a>.'); }
   });
 })();
