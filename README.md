@@ -4,7 +4,7 @@ Personal portfolio site for Lindsay Brielle Strouse. Plain HTML, CSS and JS, hos
 
 ## The page
 
-One scrolling page, `index.html`: hero, services, selected work, bio with "Trusted by" logos, speaking and writing, contact. The menu stays pinned at the top and highlights the section you're in. Styles live in `styles.css` (three looks, `theme-a`, `theme-b` and `theme-c`, set on `<body>`; keep the chosen one and delete the other two). Menu, filters, moving tiles and the two easter eggs live in `script.js`.
+One scrolling page, `index.html`: an opening with heading, short bio and portrait, then "Trusted by" logos, key numbers, services, selected work, bio, speaking and writing, and contact. Styles live in `styles.css`; menu, filters, "Read more", the moving speaking tiles, the London clock and the two easter eggs live in `script.js`.
 
 ## Easter eggs
 
@@ -13,7 +13,6 @@ One scrolling page, `index.html`: hero, services, selected work, bio with "Trust
 
 ## Before launch
 
-- Add links for the three essays in the speaking tiles.
 
 ## Connecting strousehouse.co
 
