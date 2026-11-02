@@ -125,6 +125,17 @@
     });
   });
 
+  // Speaking tiles: repeat the row once so it can loop without a gap
+  var track = document.querySelector('.track');
+  if (track) {
+    Array.prototype.slice.call(track.children).forEach(function (li) {
+      var c = li.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('a').forEach(function (a) { a.setAttribute('tabindex', '-1'); });
+      track.appendChild(c);
+    });
+  }
+
   // Work filters
   var filterButtons = document.querySelectorAll('.filters button');
   filterButtons.forEach(function (btn) {
@@ -164,7 +175,7 @@
     toastEl.innerHTML = html; toastEl.classList.add('show');
     clearTimeout(toastTimer); toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 6500);
   }
-  var mark = document.querySelector('.house-mark');
+  var mark = document.querySelector('.mark');
   var knocks = 0, knockTimer;
   if (mark) {
     mark.addEventListener('click', function () {
@@ -173,7 +184,7 @@
       clearTimeout(knockTimer); knockTimer = setTimeout(function () { knocks = 0; }, 1600);
       if (knocks >= 5) {
         knocks = 0;
-        if (document.body.classList.toggle('lights-on')) toast('Lights are on. You knock five times to see what happens. So do I. <a href="#contact">Come in.</a>');
+        if (document.body.classList.toggle('lights-on')) toast('Lights are on. You click things five times to see what happens. So do I. <a href="#contact">Say hello.</a>');
       }
     });
   }
