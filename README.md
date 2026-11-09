@@ -8,7 +8,9 @@ One scrolling page, `index.html`: an opening with heading, short bio and portrai
 
 ## Hidden surprise
 
-Click (or tap) anywhere on the page three times, at any pace, as long as each click comes within 2 seconds of the last. The site blurs from the point you clicked and a glass card guides four rounds of box breathing: a dot travels around a square (in 4, hold 4, out 4, hold 4) while the square fills and empties. The footer tells visitors how to find it. Escape, the close button, or a click outside the card ends it any time. Typing "breathe", or linking to strousehouse.co/#breathe, opens it too.
+A small "Clear your brain’s cache and cookies" button in the footer opens it. So does clicking (or tapping) anywhere three times, at any pace, as long as each click comes within 2 seconds of the last. Typing "breathe", or linking to strousehouse.co/#breathe, works too.
+
+The site blurs from the point you clicked and a glass card asks "Have you tried clearing your cache and cookies?" It guides three rounds of breathing, in for 4 and out for 6: a dot travels around a square and back while the square fills and empties, with the count in the middle. Then it explains why a longer exhale helps. Escape, the close button, or a click outside the card ends it any time.
 
 ## Before launch
 

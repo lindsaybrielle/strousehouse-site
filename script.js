@@ -75,19 +75,20 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // ---------- A small surprise: box breathing ----------
-  // Click (or tap) anywhere three times. The page blurs and a glass card
-  // guides four rounds of box breathing: in 4, hold 4, out 4, hold 4.
-  // Esc, the close button, or a click outside the card ends it any time.
-  // Typing "breathe" or visiting /#breathe opens it too.
-  var SIDE = 4000, ROUNDS = 4, INTRO = 3400;
+  // ---------- A small surprise: clear your brain's cache and cookies ----------
+  // Open it with the footer button, or by clicking anywhere three times
+  // (each click within 2 seconds of the last). Typing "breathe" or visiting
+  // /#breathe works too. The page blurs and a glass card guides three rounds
+  // of breathing: in for 4, out for 6. Esc, the close button, or a click
+  // outside the card ends it any time.
+  var ROUNDS = 3, INTRO = 3400;
   var PHASES = [
-    { word: 'Breathe in', side: 's-in' },
-    { word: 'Hold', side: 's-top' },
-    { word: 'Breathe out', side: 's-out' },
-    { word: 'Hold', side: 's-bottom' }
+    { word: 'Breathe in', ms: 4000, counts: 4 },
+    { word: 'Breathe out', ms: 6000, counts: 6 }
   ];
-  var BOX = 'M28.2 211.8A28 28 0 0 1 20 192V48A28 28 0 0 1 48 20H192A28 28 0 0 1 220 48V192A28 28 0 0 1 192 220H48A28 28 0 0 1 28.2 211.8Z';
+  var CYCLE = PHASES[0].ms + PHASES[1].ms;
+  var SQUARE = 'M120 20H192A28 28 0 0 1 220 48V192A28 28 0 0 1 192 220H48A28 28 0 0 1 20 192V48A28 28 0 0 1 48 20Z';
+  var SCIENCE = 'Lengthening your exhale activates your parasympathetic nervous system, which slows your heart rate and signals your body to relax. Try this anytime you feel activated.';
   var touch = window.matchMedia('(hover: none)').matches;
   var breath = null, parts = {}, raf = 0, lastNow = 0, elapsed = 0, state = '', lastFocus = null, paused = [];
 
@@ -97,38 +98,38 @@
     var wrap = el('div', 'breath');
     wrap.setAttribute('role', 'dialog');
     wrap.setAttribute('aria-modal', 'true');
-    wrap.setAttribute('aria-label', 'A short box breathing pause');
+    wrap.setAttribute('aria-label', 'A short breathing pause');
     var rounds = '';
     for (var r = 0; r < ROUNDS; r++) rounds += '<li></li>';
     wrap.innerHTML =
       '<div class="breath-glow" aria-hidden="true"></div>' +
       '<button type="button" class="breath-close" aria-label="Close and return to the site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
       '<div class="breath-panel">' +
-        '<p class="breath-title">Ctrl+Alt+Del for your brain</p>' +
-        '<p class="breath-label">Box breathing</p>' +
-        '<svg class="breath-box" viewBox="-30 -30 300 300" aria-hidden="true">' +
-          '<defs>' +
-            '<clipPath id="breath-clip"><rect x="46" y="46" width="148" height="148" rx="14"/></clipPath>' +
-            '<linearGradient id="breath-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0d27f"/><stop offset=".55" stop-color="#e8b9a8"/><stop offset="1" stop-color="#9cb59a"/></linearGradient>' +
-          '</defs>' +
-          '<rect class="well" x="46" y="46" width="148" height="148" rx="14"/>' +
-          '<g clip-path="url(#breath-clip)"><path class="water back"/><path class="water front" fill="url(#breath-water)"/></g>' +
-          '<path class="track" d="' + BOX + '"/>' +
-          '<path class="trail" d="' + BOX + '" pathLength="4"/>' +
-          '<text class="side s-in" transform="translate(0 120) rotate(-90)">In</text>' +
-          '<text class="side s-top" x="120" y="0">Hold</text>' +
-          '<text class="side s-out" transform="translate(240 120) rotate(90)">Out</text>' +
-          '<text class="side s-bottom" x="120" y="241">Hold</text>' +
-          '<text class="count" x="120" y="122"></text>' +
-          '<circle class="halo" r="14"/><circle class="dot" r="6.5"/>' +
-        '</svg>' +
-        '<p class="breath-word" aria-live="polite"></p>' +
-        '<p class="breath-sub"></p>' +
-        '<ol class="breath-rounds" aria-hidden="true">' + rounds + '</ol>' +
-        '<div class="breath-end" hidden>' +
-          '<button type="button" class="btn breath-return">Back to the site</button>' +
-          '<button type="button" class="btn ghost breath-again">Another round</button>' +
+        '<p class="breath-title">Have you tried clearing your cache and cookies?</p>' +
+        '<div class="breath-stage">' +
+          '<svg class="breath-box" viewBox="0 0 240 240" aria-hidden="true">' +
+            '<defs>' +
+              '<clipPath id="breath-clip"><rect x="46" y="46" width="148" height="148" rx="14"/></clipPath>' +
+              '<linearGradient id="breath-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0d27f"/><stop offset=".55" stop-color="#e8b9a8"/><stop offset="1" stop-color="#9cb59a"/></linearGradient>' +
+            '</defs>' +
+            '<rect class="well" x="46" y="46" width="148" height="148" rx="14"/>' +
+            '<g clip-path="url(#breath-clip)"><path class="water back"/><path class="water front" fill="url(#breath-water)"/></g>' +
+            '<path class="track" d="' + SQUARE + '"/>' +
+            '<path class="trail" d="' + SQUARE + '" pathLength="1"/>' +
+            '<text class="count" x="120" y="122"></text>' +
+            '<circle class="halo" r="14"/><circle class="dot" r="6.5"/>' +
+          '</svg>' +
+          '<p class="breath-word" aria-live="polite"></p>' +
+          '<p class="breath-sub"></p>' +
         '</div>' +
+        '<div class="breath-after" hidden>' +
+          '<p class="breath-science">' + SCIENCE + '</p>' +
+          '<div class="breath-end">' +
+            '<button type="button" class="btn breath-return">Back to the site</button>' +
+            '<button type="button" class="btn ghost breath-again">Go again</button>' +
+          '</div>' +
+        '</div>' +
+        '<ol class="breath-rounds" aria-hidden="true">' + rounds + '</ol>' +
       '</div>' +
       '<p class="breath-hint">' + (touch ? 'Tap outside the card to return' : 'Press Esc or click outside the card to return') + '</p>';
     document.body.appendChild(wrap);
@@ -144,8 +145,8 @@
       word: wrap.querySelector('.breath-word'),
       sub: wrap.querySelector('.breath-sub'),
       rounds: wrap.querySelectorAll('.breath-rounds li'),
-      sides: wrap.querySelectorAll('.side'),
-      end: wrap.querySelector('.breath-end'),
+      stage: wrap.querySelector('.breath-stage'),
+      after: wrap.querySelector('.breath-after'),
       close: wrap.querySelector('.breath-close')
     };
     parts.len = parts.track.getTotalLength();
@@ -171,12 +172,13 @@
     return d + 'L200 200L40 200Z';
   }
 
+  // pos: how far round the square the dot is (0 to 1). fill: how full the square is.
   function draw(pos, fill, now) {
-    var pt = parts.track.getPointAtLength(parts.len * ((pos % 4) / 4));
+    var pt = parts.track.getPointAtLength(parts.len * Math.min(pos, 0.9999));
     parts.dot.setAttribute('cx', pt.x.toFixed(2)); parts.dot.setAttribute('cy', pt.y.toFixed(2));
     parts.halo.setAttribute('cx', pt.x.toFixed(2)); parts.halo.setAttribute('cy', pt.y.toFixed(2));
     parts.halo.setAttribute('r', (12 + fill * 8).toFixed(2));
-    parts.trail.style.strokeDasharray = pos.toFixed(4) + ' 4';
+    parts.trail.style.strokeDasharray = pos.toFixed(4) + ' 1';
     var amp = reduceMotion ? 0 : 1.2 + 3.2 * Math.sin(Math.PI * fill);
     var level = 0.05 + 0.95 * fill;
     parts.front.setAttribute('d', waterPath(level, now, amp, 0));
@@ -184,7 +186,6 @@
     breath.style.setProperty('--fill', fill.toFixed(3));
   }
 
-  function setSide(i) { parts.sides.forEach(function (s) { s.classList.toggle('on', i >= 0 && s.classList.contains(PHASES[i].side)); }); }
   function setRounds(n) { parts.rounds.forEach(function (li, i) { li.className = i < n ? 'done' : (i === n ? 'now' : ''); }); }
 
   function frame(now) {
@@ -193,48 +194,51 @@
       if (state !== 'intro') {
         state = 'intro';
         swapText(parts.word, 'Let’s breathe together');
-        swapText(parts.sub, 'Follow the dot around the square. Four slow counts on each side.');
-        parts.count.textContent = ''; setSide(-1); setRounds(0);
+        swapText(parts.sub, 'In for 4, out for 6. Follow the dot around the square and back.');
+        parts.count.textContent = ''; setRounds(0);
       }
       draw(0, 0, now);
     } else {
-      var t = elapsed - INTRO, cycle = SIDE * 4, round = Math.floor(t / cycle);
+      var t = elapsed - INTRO, round = Math.floor(t / CYCLE);
       if (round >= ROUNDS) { finish(now); return; }
-      var inCycle = t - round * cycle, phase = Math.floor(inCycle / SIDE), p = (inCycle - phase * SIDE) / SIDE;
+      var inCycle = t - round * CYCLE;
+      var phase = inCycle < PHASES[0].ms ? 0 : 1;
+      var p = phase === 0 ? inCycle / PHASES[0].ms : (inCycle - PHASES[0].ms) / PHASES[1].ms;
       var key = round + ':' + phase;
       if (state !== key) {
         state = key;
         swapText(parts.word, PHASES[phase].word);
-        if (round === 0 && phase === 0) swapText(parts.sub, 'Round 1 of ' + ROUNDS);
-        else if (phase === 0) swapText(parts.sub, round === ROUNDS - 1 ? 'Last round' : 'Round ' + (round + 1) + ' of ' + ROUNDS);
-        setSide(phase); setRounds(round);
+        if (phase === 0) swapText(parts.sub, round === ROUNDS - 1 ? 'Last round' : 'Round ' + (round + 1) + ' of ' + ROUNDS);
+        setRounds(round);
       }
-      var count = String(Math.min(4, Math.floor(p * 4) + 1));
+      var count = String(Math.min(PHASES[phase].counts, Math.floor(p * PHASES[phase].counts) + 1));
       if (parts.count.textContent !== count) {
         parts.count.textContent = count;
         parts.count.classList.remove('tick'); void parts.count.getBBox(); parts.count.classList.add('tick');
       }
-      var fill = phase === 0 ? ease(p) : phase === 1 ? 1 : phase === 2 ? 1 - ease(p) : 0;
-      if (reduceMotion) { fill = phase === 0 || phase === 1 ? 1 : 0; draw(phase, fill, now); }
-      else draw(phase + p, fill, now);
+      var fill = phase === 0 ? ease(p) : 1 - ease(p);
+      if (reduceMotion) { fill = phase === 0 ? 1 : 0; draw(fill, fill, now); }
+      else draw(phase === 0 ? p : 1 - p, fill, now);
     }
     raf = requestAnimationFrame(frame);
   }
 
   function finish(now) {
     state = 'done';
-    swapText(parts.word, 'Thank you for pausing.');
-    swapText(parts.sub, 'Come back any time. ' + (touch ? 'Tap' : 'Click') + ' anywhere three times.');
-    parts.count.textContent = ''; setSide(-1); setRounds(ROUNDS);
+    parts.count.textContent = '';
     draw(0, 0, now);
-    parts.trail.style.strokeDasharray = '0 4';
-    parts.end.hidden = false;
+    setRounds(ROUNDS);
+    breath.classList.add('done');
+    parts.stage.hidden = true;
+    parts.after.hidden = false;
     breath.querySelector('.breath-return').focus({ preventScroll: true });
   }
 
   function begin() {
     cancelAnimationFrame(raf);
-    elapsed = 0; state = ''; parts.end.hidden = true;
+    elapsed = 0; state = '';
+    breath.classList.remove('done');
+    parts.stage.hidden = false; parts.after.hidden = true;
     lastNow = performance.now();
     raf = requestAnimationFrame(frame);
     parts.close.focus({ preventScroll: true });
@@ -268,6 +272,12 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
     if (location.hash === '#breathe') { try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {} }
   }
+
+  var cacheBtn = document.querySelector('.cache-btn');
+  if (cacheBtn) cacheBtn.addEventListener('click', function () {
+    var r = cacheBtn.getBoundingClientRect();
+    startBreath(r.left + r.width / 2, r.top + r.height / 2);
+  });
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && breath && breath.classList.contains('show')) endBreath();
@@ -304,7 +314,4 @@
 
   if (location.hash === '#breathe') startBreath();
   window.addEventListener('hashchange', function () { if (location.hash === '#breathe') startBreath(); });
-
-  var hint = document.querySelector('.egg-hint .how');
-  if (hint && touch) hint.textContent = 'Tap';
 })();

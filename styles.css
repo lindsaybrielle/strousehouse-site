@@ -179,10 +179,14 @@ html { touch-action: manipulation; }
 html.breathing { overflow: hidden; }
 html.breathing .track { animation-play-state: paused; }
 
-.egg-hint { display: inline-flex; align-items: center; gap: 8px; }
-.egg-hint svg { width: 11px; height: 11px; flex: none; }
-.egg-hint .cell { fill: none; stroke: currentColor; stroke-width: 2; }
-.egg-hint .accent { fill: var(--red); stroke: var(--red); }
+.site-footer .wrap { align-items: center; }
+.cache-btn { font: inherit; font-size: 12.5px; font-weight: 600; color: var(--muted); background: var(--card); border: 1px solid var(--rule); border-radius: 999px; padding: 8px 14px 8px 12px; display: inline-flex; align-items: center; gap: 9px; cursor: pointer; transition: color .2s, border-color .2s, box-shadow .2s; }
+.cache-btn:hover { color: var(--ink); border-color: #d8d1c5; box-shadow: 0 6px 18px -12px rgba(29, 27, 24, .5); }
+.cache-btn svg { width: 12px; height: 12px; flex: none; overflow: visible; }
+.cache-btn .cell { fill: none; stroke: currentColor; stroke-width: 2; }
+.cache-btn .accent { fill: var(--red); stroke: var(--red); transform-box: fill-box; transform-origin: center; }
+@media (hover: hover) { .cache-btn:hover .accent { animation: markBreathe 2.4s ease-in-out infinite; } }
+@keyframes markBreathe { 40% { transform: scale(.6); } }
 
 .ripple { position: fixed; z-index: 85; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; border: 1.5px solid var(--red); pointer-events: none; animation: ripple 1s cubic-bezier(.2, .7, .2, 1) forwards; }
 .ripple.r3 { border-color: var(--gold); border-width: 2px; animation-duration: 1.1s; }
@@ -211,7 +215,7 @@ html.breathing .track { animation-play-state: paused; }
 .breath-panel {
   position: relative; margin: auto; width: min(100%, 420px);
   padding: 28px 28px 26px; border-radius: 34px;
-  background: rgba(255, 255, 255, .58);
+  background: rgba(255, 255, 255, .72);
   border: 1px solid rgba(255, 255, 255, .85);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 40px 90px -40px rgba(29, 27, 24, .4), 0 10px 30px -16px rgba(29, 27, 24, .2);
   display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -221,18 +225,18 @@ html.breathing .track { animation-play-state: paused; }
 .breath.show .breath-panel { transform: none; opacity: 1; }
 .breath, .breath button { font-family: var(--sans); }
 .breath .btn { font: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer; }
-.breath-title { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); }
-.breath-label { margin-top: 6px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--green); }
-.breath-label::before, .breath-label::after { content: ""; width: 18px; height: 1.5px; background: currentColor; opacity: .5; }
+.breath-title { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 2.4vw, 25px); line-height: 1.22; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; max-width: 16em; }
+.breath-stage, .breath-after { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.breath-stage[hidden], .breath-after[hidden] { display: none; }
+.breath-after { margin-top: 18px; animation: swapIn 1s cubic-bezier(.2, .7, .2, 1) both; }
+.breath-science { font-family: var(--serif); font-weight: 300; font-size: clamp(19px, 2vw, 21px); line-height: 1.45; color: var(--ink); max-width: 21em; text-wrap: pretty; }
 
-.breath-box { width: min(68vw, 270px); height: auto; margin: 12px 0 4px; overflow: visible; }
+.breath-box { width: min(64vw, 236px); height: auto; margin: 14px 0 8px; overflow: visible; }
 .breath-box .well { fill: rgba(247, 245, 241, .75); stroke: rgba(29, 27, 24, .05); }
 .breath-box .water.front { opacity: .92; }
 .breath-box .water.back { fill: #9cb59a; opacity: .32; }
 .breath-box .track { fill: none; stroke: rgba(29, 27, 24, .14); stroke-width: 1.5; }
 .breath-box .trail { fill: none; stroke: var(--green); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0 4; }
-.breath-box .side { font-family: var(--sans); font-weight: 600; font-size: 12.5px; fill: var(--muted); opacity: .55; text-anchor: middle; dominant-baseline: middle; transition: opacity .6s, fill .6s; }
-.breath-box .side.on { opacity: 1; fill: var(--ink); }
 .breath-box .count { font-family: var(--serif); font-weight: 300; font-size: 60px; fill: rgba(29, 27, 24, .82); text-anchor: middle; dominant-baseline: middle; }
 .breath-box .count.tick { animation: tick .8s ease both; }
 .breath-box .dot { fill: var(--red); }
@@ -244,13 +248,12 @@ html.breathing .track { animation-play-state: paused; }
 .swap { animation: swapIn .8s cubic-bezier(.2, .7, .2, 1) both; }
 @keyframes swapIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
-.breath-rounds { list-style: none; margin: 10px 0 0; padding: 0; display: flex; gap: 8px; }
+.breath-rounds { list-style: none; margin: 16px 0 0; padding: 0; display: flex; gap: 8px; }
 .breath-rounds li { width: 9px; height: 9px; border-radius: 2.5px; background: rgba(29, 27, 24, .12); transition: background .8s; }
 .breath-rounds li.now { background: var(--gold); }
 .breath-rounds li.done { background: var(--green); }
 
-.breath-end { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; animation: swapIn .8s ease both; }
-.breath-end[hidden] { display: none; }
+.breath-end { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
 
 .breath-close {
   position: fixed; top: calc(18px + env(safe-area-inset-top, 0px)); right: max(18px, env(safe-area-inset-right, 0px)); z-index: 1;
@@ -262,13 +265,13 @@ html.breathing .track { animation-play-state: paused; }
 .breath-close:hover { background: #fff; transform: rotate(90deg); }
 .breath-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .breath-hint { position: fixed; left: 0; right: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: 12.5px; color: var(--muted); pointer-events: none; }
-@media (max-height: 640px) { .breath-box { width: min(60vw, 210px); } .breath-hint { display: none; } }
+@media (max-height: 640px) { .breath-box { width: min(56vw, 190px); } .breath-hint { display: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   .breath, .breath.show { clip-path: none; transition: opacity .3s ease, visibility 0s linear .3s; }
   .breath.show { transition: opacity .3s ease; }
   .breath-panel, .breath.show .breath-panel { transform: none; transition: opacity .3s ease; }
-  .swap, .breath-box .count.tick, .breath-end { animation: none; }
+  .swap, .breath-box .count.tick, .breath-after { animation: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
