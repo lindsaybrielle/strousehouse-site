@@ -104,7 +104,7 @@
       '<div class="breath-glow" aria-hidden="true"></div>' +
       '<button type="button" class="breath-close" aria-label="Close and return to the site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
       '<div class="breath-panel">' +
-        '<p class="breath-title">A small pause</p>' +
+        '<p class="breath-title">Ctrl+Alt+Del for your brain</p>' +
         '<p class="breath-label">Box breathing</p>' +
         '<svg class="breath-box" viewBox="-30 -30 300 300" aria-hidden="true">' +
           '<defs>' +
