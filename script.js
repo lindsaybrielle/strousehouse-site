@@ -104,7 +104,8 @@
       '<div class="breath-glow" aria-hidden="true"></div>' +
       '<button type="button" class="breath-close" aria-label="Close and return to the site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
       '<div class="breath-panel">' +
-        '<p class="breath-eyebrow">A small pause &middot; Box breathing</p>' +
+        '<p class="breath-title">A small pause</p>' +
+        '<p class="breath-label">Box breathing</p>' +
         '<svg class="breath-box" viewBox="-30 -30 300 300" aria-hidden="true">' +
           '<defs>' +
             '<clipPath id="breath-clip"><rect x="46" y="46" width="148" height="148" rx="14"/></clipPath>' +
@@ -114,10 +115,10 @@
           '<g clip-path="url(#breath-clip)"><path class="water back"/><path class="water front" fill="url(#breath-water)"/></g>' +
           '<path class="track" d="' + BOX + '"/>' +
           '<path class="trail" d="' + BOX + '" pathLength="4"/>' +
-          '<text class="side s-in" transform="translate(0 120) rotate(-90)">in</text>' +
-          '<text class="side s-top" x="120" y="0">hold</text>' +
-          '<text class="side s-out" transform="translate(240 120) rotate(90)">out</text>' +
-          '<text class="side s-bottom" x="120" y="241">hold</text>' +
+          '<text class="side s-in" transform="translate(0 120) rotate(-90)">In</text>' +
+          '<text class="side s-top" x="120" y="0">Hold</text>' +
+          '<text class="side s-out" transform="translate(240 120) rotate(90)">Out</text>' +
+          '<text class="side s-bottom" x="120" y="241">Hold</text>' +
           '<text class="count" x="120" y="122"></text>' +
           '<circle class="halo" r="14"/><circle class="dot" r="6.5"/>' +
         '</svg>' +
@@ -284,8 +285,9 @@
   document.addEventListener('click', function (e) {
     if (breath && breath.classList.contains('show')) return;
     if (e.target.closest('a, button, input, textarea, select, label, video, [role="button"]')) { taps = []; return; }
+    // Any pace works, as long as each click comes within 2 seconds of the last.
     var now = Date.now();
-    taps = taps.filter(function (t) { return now - t < 900; });
+    if (taps.length && now - taps[taps.length - 1] > 2000) taps = [];
     taps.push(now);
     if (taps.length >= 2) ripple(e.clientX, e.clientY, taps.length);
     if (taps.length >= 3) { taps = []; startBreath(e.clientX, e.clientY); }
