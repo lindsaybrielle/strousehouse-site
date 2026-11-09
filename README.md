@@ -4,11 +4,11 @@ Personal portfolio site for Lindsay Brielle Strouse. Plain HTML, CSS and JS, hos
 
 ## The page
 
-One scrolling page, `index.html`: an opening with heading, short bio and portrait, then "Trusted by" logos, key numbers, services, selected work, bio, speaking and writing, and contact. Styles live in `styles.css`; menu, filters, "Read more", the moving speaking tiles, and the hidden breathing pause live in `script.js`.
+One scrolling page, `index.html`: an opening with heading, short bio and portrait, then "Trusted by" logos, key numbers, services, selected work, bio, speaking and writing, and contact. Styles live in `styles.css`; menu, filters, "Read more", the moving speaking tiles, and the hidden box breathing pause live in `script.js`.
 
 ## Hidden surprise
 
-Click the logo five times, or type "breathe" anywhere, for a short guided breathing pause: a soft flower opens and closes with three slow breaths (4 seconds in, 6 out), then fades away. Escape or the close button ends it early.
+Click (or tap) anywhere on the page three times. The site blurs from the point you clicked and a glass card guides four rounds of box breathing: a dot travels around a square (in 4, hold 4, out 4, hold 4) while the square fills and empties. The footer tells visitors how to find it. Escape, the close button, or a click outside the card ends it any time. Typing "breathe", or linking to strousehouse.co/#breathe, opens it too.
 
 ## Before launch
 
