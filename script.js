@@ -76,9 +76,7 @@
   if (year) year.textContent = new Date().getFullYear();
 
   // ---------- A small surprise: clear your brain's cache and cookies ----------
-  // Open it with the footer button, or by clicking anywhere three times
-  // (each click within 2 seconds of the last). Typing "breathe" or visiting
-  // /#breathe works too. The page blurs and a glass card guides three rounds
+  // The only way in is the footer button. The page blurs and a glass card guides three rounds
   // of breathing: in for 4, out for 6. Esc, the close button, or a click
   // outside the card ends it any time.
   var ROUNDS = 3, INTRO = 3400;
@@ -270,7 +268,6 @@
     document.querySelectorAll('body > header, body > main, body > footer, body > .skip').forEach(function (n) { n.inert = false; });
     paused.forEach(function (v) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); });
     if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
-    if (location.hash === '#breathe') { try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {} }
   }
 
   var cacheBtn = document.querySelector('.cache-btn');
@@ -282,36 +279,4 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && breath && breath.classList.contains('show')) endBreath();
   });
-
-  // Three clicks anywhere. Links, buttons and the video keep working as normal.
-  var taps = [];
-  function ripple(x, y, n) {
-    if (reduceMotion) return;
-    var r = el('span', 'ripple r' + n);
-    r.style.left = x + 'px'; r.style.top = y + 'px';
-    document.body.appendChild(r);
-    setTimeout(function () { r.remove(); }, 1100);
-  }
-  document.addEventListener('click', function (e) {
-    if (breath && breath.classList.contains('show')) return;
-    if (e.target.closest('a, button, input, textarea, select, label, video, [role="button"]')) { taps = []; return; }
-    // Any pace works, as long as each click comes within 2 seconds of the last.
-    var now = Date.now();
-    if (taps.length && now - taps[taps.length - 1] > 2000) taps = [];
-    taps.push(now);
-    if (taps.length >= 2) ripple(e.clientX, e.clientY, taps.length);
-    if (taps.length >= 3) { taps = []; startBreath(e.clientX, e.clientY); }
-  });
-
-  var typed = '', phrase = 'breathe';
-  document.addEventListener('keydown', function (e) {
-    if (e.metaKey || e.ctrlKey || e.altKey || !e.key || e.key.length !== 1) return;
-    var tag = (e.target && e.target.tagName) || '';
-    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-    typed = (typed + e.key.toLowerCase()).slice(-phrase.length);
-    if (typed === phrase) { typed = ''; startBreath(); }
-  });
-
-  if (location.hash === '#breathe') startBreath();
-  window.addEventListener('hashchange', function () { if (location.hash === '#breathe') startBreath(); });
 })();
