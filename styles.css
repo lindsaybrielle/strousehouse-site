@@ -78,8 +78,8 @@ h3 { font-family: var(--sans); font-weight: 700; font-size: 19px; line-height: 1
 .hero { padding-block: clamp(32px, 6vw, 80px) clamp(48px, 6vw, 72px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
 .hero h1 { font-size: clamp(38px, 4.6vw, 64px); }
-.tagline { margin-top: 24px; display: flex; align-items: center; gap: 12px; font-size: clamp(17px, 1.6vw, 19px); font-weight: 600; color: var(--green); }
-.tagline::before { content: ""; width: 28px; height: 2px; background: var(--green); flex: none; }
+.tagline { margin-top: 24px; display: flex; align-items: flex-start; gap: 12px; font-size: clamp(17px, 1.6vw, 19px); line-height: 1.6; font-weight: 600; color: var(--green); max-width: 34em; }
+.tagline::before { content: ""; width: 28px; height: 2px; margin-top: calc(0.8em - 1px); background: var(--green); flex: none; }
 .hero-intro { margin-top: 18px; font-size: clamp(18px, 1.7vw, 21px); line-height: 1.6; color: var(--muted); max-width: 32em; }
 .hero .btn-row { margin-top: 30px; }
 .portrait { margin: 0; }
